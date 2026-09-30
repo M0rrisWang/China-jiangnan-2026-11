@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江南七日 — 杭州進 · 上海出 — 2026/11/15–11/21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F5F2;
+    --paper-2:#FBFCFB;
+    --ink:#1C2826;
+    --ink-2:#4A5A56;
+    --celadon:#7A9A8B;
+    --celadon-deep:#3B5A4E;
+    --celadon-wash:#E4EDE7;
+    --ginkgo:#B5901F;
+    --ginkgo-wash:#F6EFD8;
+    --rule:#CBD8D0;
+    --serif:"Noto Serif TC","Songti TC","SimSun",serif;
+    --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  }
+
+  *{box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:19px;
+    line-height:1.8;
+    -webkit-text-size-adjust:100%;
+  }
+
+  .wrap{max-width:52rem;margin:0 auto;padding:0 1.5rem}
+
+  a{color:var(--celadon-deep);text-decoration-thickness:1px;text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--ginkgo);outline-offset:3px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:4rem 0 2.5rem;border-bottom:1px solid var(--rule)}
+  .route{
+    font-family:var(--serif);font-weight:500;font-size:1.05rem;
+    color:var(--celadon-deep);letter-spacing:.08em;margin:0 0 .75rem;
+  }
+  h1{
+    font-family:var(--serif);font-weight:700;
+    font-size:clamp(2.8rem,10vw,4.4rem);
+    line-height:1.05;letter-spacing:.02em;margin:0;
+  }
+  .dates{margin:1.25rem 0 0;font-size:1.15rem;color:var(--ink-2);line-height:1.6}
+  .dates strong{color:var(--ink);font-weight:500}
+
+  /* ---------- rhythm band ---------- */
+  .rhythm{margin:2.5rem 0 0}
+  .rhythm-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .rd{
+    background:var(--paper-2);border:1px solid var(--rule);
+    padding:.7rem .3rem .8rem;text-align:center;text-decoration:none;color:var(--ink);
+    display:block;
+  }
+  .rd:hover,.rd:focus-visible{border-color:var(--celadon-deep)}
+  .rd .num{display:block;font-family:var(--serif);font-weight:700;font-size:1.5rem;line-height:1.1}
+  .rd .wk{display:block;font-size:.8rem;color:var(--ink-2);margin-top:.15rem}
+  .rd .kind{display:block;font-size:.75rem;margin-top:.5rem;padding:.15rem 0;border-radius:2px}
+  .rd.full{background:var(--celadon-wash);border-color:var(--celadon)}
+  .rd.full .kind{color:var(--celadon-deep);font-weight:700}
+  .rd.move .kind{color:var(--ink-2)}
+
+  .rhythm-cities{
+    display:grid;grid-template-columns:repeat(7,1fr);gap:4px;
+    margin-top:.5rem;font-size:.85rem;color:var(--ink-2);text-align:center;
+  }
+  .rhythm-cities span{border-top:2px solid var(--rule);padding-top:.4rem}
+  .rhythm-cities .hz{border-top-color:var(--celadon)}
+  .rhythm-cities .sz{border-top-color:var(--ginkgo)}
+  .rhythm-cities .sh{border-top-color:var(--celadon-deep)}
+
+  .rhythm-note{margin:1.25rem 0 0;font-size:.95rem;color:var(--ink-2)}
+
+  /* ---------- sections ---------- */
+  section{padding:3.5rem 0;border-bottom:1px solid var(--rule)}
+  h2{
+    font-family:var(--serif);font-weight:700;font-size:1.9rem;
+    line-height:1.3;margin:0 0 1.5rem;
+  }
+  h3{font-family:var(--serif);font-weight:500;font-size:1.25rem;margin:2rem 0 .6rem}
+  p{margin:0 0 1.1rem;max-width:38em}
+  ul{padding-left:1.3rem;margin:0 0 1.1rem;max-width:38em}
+  li{margin-bottom:.5rem}
+  li::marker{color:var(--celadon)}
+
+  .lead{font-size:1.1rem}
+
+  /* ---------- principles ---------- */
+  .principles{display:grid;gap:1.5rem;margin:0}
+  @media(min-width:44rem){.principles{grid-template-columns:repeat(3,1fr)}}
+  .principles div{border-top:3px solid var(--celadon);padding-top:.9rem}
+  .principles h3{margin:0 0 .4rem;font-size:1.1rem}
+  .principles p{font-size:.95rem;margin:0;max-width:none;line-height:1.7}
+
+  /* ---------- day blocks ---------- */
+  .day{margin:0 0 2.5rem;scroll-margin-top:1.5rem}
+  .day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .9rem;margin-bottom:.9rem}
+  .day-n{
+    font-family:var(--serif);font-weight:700;font-size:1.05rem;
+    color:var(--celadon-deep);letter-spacing:.06em;
+  }
+  .day-date{font-family:var(--serif);font-weight:700;font-size:1.55rem;line-height:1.2}
+  .day-city{font-size:1rem;color:var(--ink-2)}
+  .tag{
+    font-size:.8rem;padding:.15rem .55rem;border-radius:2px;
+    border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap;
+  }
+  .tag.full{background:var(--celadon-wash);border-color:var(--celadon);color:var(--celadon-deep);font-weight:700}
+
+  .day-body{border-left:3px solid var(--rule);padding-left:1.4rem}
+  .day.is-full .day-body{border-left-color:var(--celadon)}
+
+  .slot{display:grid;gap:.15rem .9rem;margin-bottom:1rem}
+  @media(min-width:40rem){.slot{grid-template-columns:7.5rem 1fr}}
+  .slot:last-child{margin-bottom:0}
+  .slot dt{font-size:.9rem;color:var(--ink-2);padding-top:.25rem}
+  .slot dd{margin:0}
+  .slot dd .why{display:block;font-size:.9rem;color:var(--ink-2);margin-top:.15rem}
+
+  .slot.meal dt{color:var(--ginkgo);font-weight:700}
+  .slot.meal dd{border-bottom:1px dotted var(--rule);padding-bottom:.7rem}
+
+  .opts{display:grid;gap:1.3rem;margin:1rem 0 2rem}
+  .opt{border-left:3px solid var(--rule);padding-left:1.2rem}
+  .opt.pick{border-left-color:var(--celadon-deep);background:var(--celadon-wash);padding:.9rem 1.2rem;border-radius:2px}
+  .opt h5{font-family:var(--serif);font-weight:700;font-size:1.05rem;margin:0 0 .25rem}
+  .opt .dist{font-size:.88rem;color:var(--ginkgo);font-weight:700;margin:0 0 .5rem}
+  .opt p{font-size:.95rem;margin:0 0 .45rem;max-width:40em;line-height:1.7}
+  .opt p:last-child{margin-bottom:0}
+  .opt .cav{color:var(--ink-2)}
+  .pickmark{font-size:.78rem;font-weight:700;color:var(--celadon-deep);border:1px solid var(--celadon);padding:.1rem .45rem;border-radius:2px;margin-left:.5rem;white-space:nowrap}
+
+  .rain{
+    background:var(--celadon-wash);border-left:3px solid var(--celadon);
+    padding:.7rem 1rem;margin:.4rem 0 1rem;font-size:.95rem;line-height:1.7;
+  }
+  .rain b{font-weight:700;color:var(--celadon-deep)}
+  .alert{
+    background:var(--ginkgo-wash);border-left:3px solid var(--ginkgo);
+    padding:.9rem 1.1rem;margin:1.2rem 0;font-size:.97rem;line-height:1.75;
+  }
+  .alert b{font-weight:700}
+
+  .todo h3{
+    display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;
+    margin:2.5rem 0 .3rem;padding-bottom:.45rem;border-bottom:2px solid var(--celadon);
+  }
+  .todo h3 .when{font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--ginkgo);letter-spacing:.03em}
+  .todo h3:first-of-type{margin-top:.5rem}
+  .todo .note{font-size:.93rem;color:var(--ink-2);margin:.6rem 0 .9rem;max-width:40em}
+  .hard{border-color:var(--ginkgo)}
+
+  .ver{
+    display:inline-block;font-family:var(--sans);font-size:.82rem;font-weight:700;
+    color:var(--celadon-deep);background:var(--celadon-wash);
+    border:1px solid var(--celadon);border-radius:2px;padding:.2rem .6rem;margin-top:1rem;
+  }
+  .changelog{font-size:.9rem;color:var(--ink-2);margin:1rem 0 0;padding-left:1.3rem}
+  .changelog li{margin-bottom:.35rem}
+
+  .maps{display:grid;gap:2.5rem;margin:1.5rem 0 0}
+  .map figure{margin:0}
+  .map svg{width:100%;height:auto;display:block}
+  .map figcaption{font-size:.9rem;color:var(--ink-2);margin-top:.6rem;line-height:1.65}
+  .map h4{
+    font-family:var(--serif);font-weight:700;font-size:1.1rem;margin:0 0 .5rem;
+    padding-bottom:.4rem;border-bottom:1px solid var(--rule);
+  }
+  .mp-ring{fill:none;stroke:var(--rule);stroke-width:1;stroke-dasharray:3 4}
+  .mp-rlabel{font-family:var(--sans);font-size:11px;fill:#8B9894}
+  .mp-water{fill:var(--celadon-wash)}
+  .mp-wlabel{font-family:var(--serif);font-size:14px;fill:var(--celadon-deep)}
+  .mp-hotel{fill:var(--celadon-deep)}
+  .mp-hlabel{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--celadon-deep)}
+  .mp-dot{fill:var(--ginkgo)}
+  .mp-label{font-family:var(--sans);font-size:13px;font-weight:500;fill:var(--ink)}
+  .mp-sub{font-family:var(--sans);font-size:11px;fill:var(--ink-2)}
+  .mp-arrow{stroke:var(--ink-2);stroke-width:1.5;stroke-dasharray:5 4;fill:none}
+  .mp-walk{fill:none;stroke:var(--celadon);stroke-width:1.5;stroke-dasharray:6 5}
+
+  .split{
+    background:var(--ginkgo-wash);border-left:3px solid var(--ginkgo);
+    padding:.7rem 1rem;margin:.2rem 0 1rem;font-size:.95rem;
+  }
+  .split b{font-weight:700}
+
+  /* ---------- tables ---------- */
+  .tbl{width:100%;border-collapse:collapse;margin:0 0 1.2rem;font-size:.97rem}
+  .tbl th,.tbl td{text-align:left;padding:.65rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  .tbl th{font-weight:700;font-size:.88rem;color:var(--ink-2);background:var(--paper-2)}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tbl tfoot td{font-weight:700;border-top:2px solid var(--celadon);background:var(--celadon-wash)}
+  .scroller{overflow-x:auto;margin-bottom:1.2rem}
+
+  .pending{color:var(--ink-2);font-style:normal}
+
+  /* ---------- checklist ---------- */
+  .check{list-style:none;padding:0;max-width:40em}
+  .check li{
+    padding-left:2rem;position:relative;margin-bottom:1rem;
+  }
+  .check li::before{
+    content:"";position:absolute;left:0;top:.55rem;
+    width:1.1rem;height:1.1rem;border:2px solid var(--celadon);border-radius:2px;
+  }
+  .check b{font-weight:700;display:block}
+  .check span{font-size:.95rem;color:var(--ink-2)}
+
+  /* ---------- open questions ---------- */
+  .open{counter-reset:q;list-style:none;padding:0;max-width:40em}
+  .open li{padding-left:2.6rem;position:relative;margin-bottom:1.3rem}
+  .open li::before{
+    counter-increment:q;content:counter(q);
+    position:absolute;left:0;top:.1rem;
+    font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--ginkgo);
+  }
+  .open b{font-weight:700;display:block}
+  .open span{font-size:.95rem;color:var(--ink-2)}
+
+  /* ---------- footer ---------- */
+  footer{padding:3rem 0 4rem;font-size:.9rem;color:var(--ink-2)}
+  footer p{max-width:40em}
+  .btn{
+    font-family:var(--sans);font-size:.95rem;font-weight:500;
+    background:none;border:1px solid var(--celadon-deep);color:var(--celadon-deep);
+    padding:.6rem 1.2rem;border-radius:2px;cursor:pointer;margin-top:1rem;
+  }
+  .btn:hover{background:var(--celadon-deep);color:var(--paper-2)}
+
+  /* ---------- print ---------- */
+  @media print{
+    body{background:#fff;font-size:11.5pt;line-height:1.6}
+    .wrap{max-width:none;padding:0}
+    .hero{padding-top:0}
+    h1{font-size:28pt}
+    section{padding:1.2rem 0;break-inside:avoid}
+    .day{break-inside:avoid;margin-bottom:1.2rem}
+    .btn,.rhythm-cities{display:none}
+    .rd{border-color:#999}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="route">杭州進　上海出</p>
+  <h1>江南七日</h1>
+  <p class="dates">
+    <strong>2026 年 11 月 15 日（日）至 11 月 21 日（六）</strong><br>
+    七天六夜　四人同行　杭州兩晚 · 蘇州兩晚 · 上海兩晚
+  </p>
+
+  <div class="rhythm">
+    <div class="rhythm-days">
+      <a class="rd move" href="#d1"><span class="num">15</span><span class="wk">日</span><span class="kind">移動</span></a>
+      <a class="rd full" href="#d2"><span class="num">16</span><span class="wk">一</span><span class="kind">完整</span></a>
+      <a class="rd move" href="#d3"><span class="num">17</span><span class="wk">二</span><span class="kind">移動</span></a>
+      <a class="rd full" href="#d4"><span class="num">18</span><span class="wk">三</span><span class="kind">完整</span></a>
+      <a class="rd move" href="#d5"><span class="num">19</span><span class="wk">四</span><span class="kind">移動</span></a>
+      <a class="rd full" href="#d6"><span class="num">20</span><span class="wk">五</span><span class="kind">完整</span></a>
+      <a class="rd move" href="#d7"><span class="num">21</span><span class="wk">六</span><span class="kind">移動</span></a>
+    </div>
+    <div class="rhythm-cities">
+      <span class="hz">杭州</span><span class="hz"></span><span class="sz">蘇州</span><span class="sz"></span><span class="sh">上海</span><span class="sh"></span><span class="sh"></span>
+    </div>
+    <p class="rhythm-note">三個「完整日」各排一個主要景點，三個「移動日」幾乎空著。全部景點日都落在平日，避開週末人潮。</p>
+  </div>
+</header>
+
+<section>
+  <h2>這份行程是怎麼設計的</h2>
+  <p class="lead">行程按 70 歲以上的體力節奏來排，不是把景點塞滿。三個原則貫穿全部七天。</p>
+  <div class="principles">
+    <div>
+      <h3>一天只排一個主景點</h3>
+      <p>每個完整日只安排一處主要景點，中間留 1.5 小時回飯店午休。寧可空著，不趕場。</p>
+    </div>
+    <div>
+      <h3>彈性分組</h3>
+      <p>下午留一個可以分開的時段：想休息的回飯店，想繼續逛的接著走，傍晚會合吃晚餐。兩位中年旅伴各配一位長輩，兩邊都有人照顧。</p>
+    </div>
+    <div>
+      <h3>移動日不排景點</h3>
+      <p>跨城的日子上午空著、午餐後才上車，避免「早上走景點、下午坐兩小時車」同一天做完。<strong>Day 3 是唯一的例外</strong>——為了排寒山寺，那天下午有行程，也因此成為七天裡最滿的一天。</p>
+    </div>
+  </div>
+  <p style="margin-top:2rem">彈性分組要能成立，飯店必須在景點步行圈內，而且包車司機要能在一天內多跑一趟接送。這兩件事在訂房和詢價時就得談定，不是到了現場再說。</p>
+</section>
+
+<section>
+  <h2>每日行程</h2>
+
+  <article class="day" id="d1">
+    <div class="day-head">
+      <span class="day-n">Day 1</span>
+      <span class="day-date">11/15 日</span>
+      <span class="day-city">桃園 → 杭州</span>
+      <span class="tag">移動日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot"><dt>07:00</dt><dd>台中出發前往桃園機場</dd></dl>
+      <dl class="slot"><dt>10:30</dt><dd>桃園機場 T2，辦理登機<span class="why">兩位長輩的輪椅協助在報到後銜接</span></dd></dl>
+      <dl class="slot meal"><dt>午餐</dt><dd>機上（CA150 供餐）<span class="why">兩岸短程線通常是簡餐，長輩胃口小可以先在機場買點東西備著</span></dd></dl>
+      <dl class="slot"><dt>12:30</dt><dd>桃園 T2 起飛（<strong>CA150</strong>，A321，1 小時 50 分）<span class="why">訂位代號（不公開）</span></dd></dl>
+      <dl class="slot"><dt>14:20</dt><dd>蕭山機場<strong>第四航廈（T4）</strong>落地<span class="why">走優先通道、第一個到行李轉盤。舉牌接機，出關就看到</span></dd></dl>
+      <dl class="slot"><dt>15:30</dt><dd>湖濱商圈飯店入住，休息一小時</dd></dl>
+      <dl class="slot"><dt>16:30</dt><dd>湖濱步行街、西湖東岸散步<span class="why">飯店走出去就是，平路、免費。11 月中天黑約五點，剛好看落日</span></dd></dl>
+      <dl class="slot meal"><dt>18:00 晚餐</dt><dd><strong>知味觀</strong>（仁和路 83 號）<span class="why">百年老店，離飯店 61 公尺、走不到 1 分鐘，開到晚上 10 點。推薦蟹粉小籠、豬肉小籠、餛飩湯。二樓才是全服務區，先確認電梯</span></dd></dl>
+      <dl class="slot"><dt>19:30</dt><dd><strong>西湖音樂噴泉</strong>（湖濱三公園）<span class="why">每晚 19:30 一場、約 15 分鐘，免費。晚餐後散步過去剛好</span></dd></dl>
+      <dl class="slot meal"><dt>20:00 宵夜</dt><dd><span class="pending">選配</span>　湖濱銀泰 in77 地下餐飲層<span class="why">有電梯、有座位、有廁所。但今天已經飛了一趟，早點回房休息才是重點</span></dd></dl>
+      <div class="alert"><b>噴泉提早 20 分鐘去佔位置，雨天停演。</b>冬令模式（10/9–4/14）湖濱商圈與步行街景觀亮燈每天 18:00–22:30，你們去的時段正好有燈。<br>當天長輩累了，噴泉和宵夜都直接跳過——今天的重點是把舟車勞頓補回來。</div>
+      <div class="rain"><b>雨天：</b>噴泉停演，散步改成湖濱 in77 室內商場，或湖畔居三樓室內茶座看雨中西湖。晚餐知味觀不受影響。</div>
+    </div>
+  </article>
+
+  <article class="day is-full" id="d2">
+    <div class="day-head">
+      <span class="day-n">Day 2</span>
+      <span class="day-date">11/16 一</span>
+      <span class="day-city">杭州</span>
+      <span class="tag full">完整日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店<span class="why">知味觀 09:00 才開，今天 09:30 出車趕不上</span></dd></dl>
+      <dl class="slot"><dt>09:30</dt><dd>出車 → 湖濱碼頭，搭西湖遊船（約 50 分鐘）<span class="why">飯店走到西湖東岸 5 分鐘，碼頭就在這一帶。只坐船不上島。買票時告知在雷峰塔下船，比環湖一圈便宜</span></dd></dl>
+      <dl class="slot"><dt>10:30</dt><dd><strong>雷峰塔</strong>下船，電梯登頂<span class="why">門口有電扶梯上塔基，塔內電梯直達頂層。全票 40 元，70 歲以上憑證件半票 20 元</span></dd></dl>
+      <dl class="slot"><dt>11:30</dt><dd>包車接回湖濱（2.6 公里，約 10 分）</dd></dl>
+      <dl class="slot meal"><dt>11:45 午餐</dt><dd><strong>外婆家</strong>（湖濱路 3 號，185 公尺）<span class="why">份量大、價格低。要取號等位——<strong>請司機提前幫取號</strong>，或這個時間進場就不用等</span></dd></dl>
+      <dl class="slot"><dt>13:00–14:30</dt><dd>回飯店午休</dd></dl>
+      <div class="split"><b>分組時段。</b>想休息的留在飯店，其餘人下午繼續。</div>
+      <dl class="slot"><dt>14:30</dt><dd><strong>郭莊</strong>（離飯店 3.1 公里，包車 10 分）<span class="why">小眾園林，面積不大、幾乎無坡、遊客少，門票十元</span></dd></dl>
+      <dl class="slot"><dt>16:30</dt><dd>回飯店，四人會合<span class="why">天黑約五點，下午行程 16:30 前收尾</span></dd></dl>
+      <dl class="slot meal"><dt>18:30 晚餐</dt><dd><strong>湖濱 28</strong>（湖濱路 28 號，君悅飯店一樓，671 公尺）<span class="why">米其林指南入選杭幫菜。不用排隊、平地有電梯、口味清爽。價位高，當這趟的一頓正餐。<strong>建議訂位</strong></span></dd></dl>
+      <dl class="slot meal"><dt>下午茶</dt><dd><span class="pending">分組時段的替代</span>　<strong>湖畔居</strong>（湖濱聖塘景區 1 號，801 公尺）<span class="why">三樓有西湖景觀陽台，坐著喝龍井。體力不好那位不去郭莊的話，這裡比回房間好</span></dd></dl>
+      <dl class="slot meal"><dt>宵夜</dt><dd><span class="pending">選配</span>　知味觀開到 22:00，或 in77 地下層</dd></dl>
+      <div class="rain"><b>雨天備案：這天很耐雨。</b>西湖畫舫是封閉有頂棚的，小雨照走；<strong>雷峰塔塔內有電梯和空調、有壁畫與文物展覽，本身就是室內景點，每天 8:00–20:00 開放、不受週一閉館影響</strong>。陰雨時從塔頂看西湖反而像仙境。<br>大風停航就請包車直接送到雷峰塔。下午的郭莊改成 in77 室內商場或湖畔居室內茶座。<br><b>這天是週一、公立博物館全關</b>——雷峰塔正好補上這個缺口。</div>
+      <div class="alert"><b>雷峰塔的電梯常常大排長龍。</b>10:30 前後抵達比下午人少。旁邊有樓梯，但四人裡有兩位不適合走。<br>用車 8 小時：09:30 上車、17:30 結束，晚餐在步行圈內不佔用車時間。</div>
+    </div>
+  </article>
+
+  <article class="day" id="d3">
+    <div class="day-head">
+      <span class="day-n">Day 3</span>
+      <span class="day-date">11/17 二</span>
+      <span class="day-city">杭州 → 蘇州</span>
+      <span class="tag">移動日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店<span class="why">今天 08:30 出車，知味觀 09:00 開，來不及</span></dd></dl>
+      <dl class="slot"><dt>08:30</dt><dd>退房，行李上車 → 北山街銀杏道、斷橋・白堤起點<span class="why">全程平路、免費，11 月中秋色正好。離湖濱 1.2 公里，走多少算多少</span></dd></dl>
+      <dl class="slot"><dt>11:30</dt><dd>回湖濱一帶</dd></dl>
+      <dl class="slot meal"><dt>12:00 午餐</dt><dd>湖濱一帶（知味觀已開，或 in77 地下層）<span class="why">吃飽再上車，不要餓著坐兩小時。也可請飯店備點心在車上</span></dd></dl>
+      <dl class="slot"><dt>13:00</dt><dd><strong>準時出發前往蘇州</strong>（約 180 公里，2 小時）<span class="why">時間是從寒山寺的關門時間倒推的，這班車不能晚</span></dd></dl>
+      <dl class="slot"><dt>15:00</dt><dd><strong>寒山寺</strong>（停留約 1 小時）<span class="why">張繼〈楓橋夜泊〉那座寺，1,400 年歷史。平地、規模不大。在古城西側楓橋路，正好在從杭州過來的方向上</span></dd></dl>
+      <dl class="slot"><dt>16:45</dt><dd>蘇州飯店入住（全季觀前街店，觀前街 57-69 號）</dd></dl>
+      <dl class="slot meal"><dt>18:00 晚餐</dt><dd><strong>松鶴樓</strong>（太監弄 72 號，<strong>39 公尺</strong>）<span class="why">蘇幫菜老字號，走出飯店門就到。菜偏甜，點的時候說「少糖」</span></dd></dl>
+      <dl class="slot"><dt>19:30</dt><dd>觀前街散步<span class="why">飯店就在街上，走多遠都行，累了隨時回房</span></dd></dl>
+      <dl class="slot meal"><dt>宵夜</dt><dd><span class="pending">選配</span>　觀前街沿街小吃<span class="why">今天車程兩小時加一座寺，是七天裡最滿的一天，建議早點休息</span></dd></dl>
+      <div class="alert"><b>這天是七天裡最滿的一天。</b>上午散步、兩小時車程、下午一座寺廟。上午和車程本身都輕鬆，所以撐得住，但沒有餘裕。<br><strong>如果當天長輩狀況不好，寒山寺是第一個該砍的</strong>——直接進飯店休息。<br>出發前確認兩件事：寒山寺近期有旅客提到寺內在整修；景區落客點在停車場、下車後還要走一段，請司機先確認最近的位置。楓橋景區裡可以登山的那一段不要去。<br>用車 10 小時：08:30 上車、18:30 結束，餘裕 1.5 小時。</div>
+      <div class="rain"><b>雨天備案：</b>上午的北山街與斷橋改去<strong>浙江省博物館孤山館區・浙江西湖美術館</strong>（孤山路 15 號，免費、全室內），就在同一條路上，包車約 5 分鐘，週二開館。備選是<strong>西湖博物館</strong>（南山路 89 號，免費、全年開放）。<br>下午的寒山寺殿宇可以躲雨，但庭院是露天的；雨太大就直接跳過、提早進飯店。</div>
+    </div>
+  </article>
+
+  <article class="day is-full" id="d4">
+    <div class="day-head">
+      <span class="day-n">Day 4</span>
+      <span class="day-date">11/18 三</span>
+      <span class="day-city">蘇州</span>
+      <span class="tag full">完整日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店，或<strong>黃天源</strong>（觀前街浭泗巷 3 號，<strong>195 公尺</strong>）<span class="why">蘇式糕團老字號，粥和糕團軟、好入口——三個城市裡最適合長輩的一頓早餐。走 3 分鐘，回飯店再出車來得及</span></dd></dl>
+      <dl class="slot"><dt>09:00</dt><dd>出車 → <strong>拙政園</strong>（建議預約 9:30 時段）<span class="why">座椅多、可中途折返。冬季 7:30–17:00，閉園前 30 分鐘停止入場</span></dd></dl>
+      <dl class="slot"><dt>11:30</dt><dd>走<strong>南出口</strong>，包車接回飯店<span class="why">拙政園一個入口、兩個出口。下一站是蘇州博物館或獅子林走南出口，下一站是平江路走東出口</span></dd></dl>
+      <dl class="slot meal"><dt>12:15 午餐</dt><dd><strong>朱鴻興麵館</strong>（宮巷 108 號，<strong>105 公尺</strong>）<span class="why">湯麵為主，熱食暖身，坐下就能吃</span></dd></dl>
+      <dl class="slot"><dt>13:00–14:00</dt><dd>回飯店午休</dd></dl>
+      <div class="split"><b>分組時段。</b></div>
+      <dl class="slot"><dt>14:15</dt><dd><strong>蘇州博物館</strong>（預約時段）<span class="why">貝聿銘設計。免費但需預約，16:00 停止入館。離拙政園只有 255 公尺，跟上午是同一區</span></dd></dl>
+      <dl class="slot"><dt>16:00</dt><dd>出館，回飯店</dd></dl>
+      <dl class="slot meal"><dt>16:45 下午點心</dt><dd><strong>采芝齋</strong>（觀前街 91 號，<strong>147 公尺</strong>）<span class="why">蘇式糕點茶室，甜度不高。順便在這裡買伴手禮，省得最後一天再跑</span></dd></dl>
+      <dl class="slot meal"><dt>18:00 晚餐</dt><dd><strong>裕麵堂</strong>（姑蘇區西側，1.9 公里、叫車 8 分）<span class="why">湯頭清、油不重、店內乾淨可以慢慢吃。不想叫車就回松鶴樓，或觀前街任選</span></dd></dl>
+      <dl class="slot meal"><dt>宵夜</dt><dd><span class="pending">選配</span>　觀前街<span class="why">飯店就在街上，想吃隨時下樓</span></dd></dl>
+      <div class="alert"><b>用車 8 小時：09:00 上車、17:00 結束，只剩半小時餘裕。</b>拙政園多待半小時、或下午繞去平江路走一段，就會超時（人民幣 50／小時，約 NT$215）。不是大錢，但先知道。<br>晚餐去裕麵堂要自己叫車——司機已收工。</div>
+      <div class="rain"><b>雨天備案：</b>拙政園雨天可以去——蘇州園林有大量迴廊和亭榭可以躲雨，雨中園林反而更有意境。真正的風險是石板路濕滑，走慢一點。若雨太大就直接提前進<strong>蘇州博物館</strong>（離拙政園只有 255 公尺），下午改成絲綢博物館或回飯店。</div>
+    </div>
+  </article>
+
+  <article class="day" id="d5">
+    <div class="day-head">
+      <span class="day-n">Day 5</span>
+      <span class="day-date">11/19 四</span>
+      <span class="day-city">蘇州 → 上海</span>
+      <span class="tag">移動日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店，或黃天源再來一次</dd></dl>
+      <dl class="slot"><dt>08:30</dt><dd>退房，行李上車 → <strong>獅子林</strong><span class="why">約 1 小時、平地為主，比拙政園輕鬆很多。同樣需要預約</span></dd></dl>
+      <dl class="slot"><dt>11:00</dt><dd>回觀前街一帶</dd></dl>
+      <dl class="slot meal"><dt>11:30 午餐</dt><dd>觀前街（松鶴樓、朱鴻興任選）<span class="why">在蘇州吃完再上車</span></dd></dl>
+      <dl class="slot"><dt>13:00</dt><dd>出發前往上海（約 100 公里，1.5 小時）</dd></dl>
+      <dl class="slot"><dt>14:30</dt><dd>上海飯店入住（人民廣場一帶），休息</dd></dl>
+      <dl class="slot"><dt>16:30</dt><dd><strong>外灘濱江</strong>（離人民廣場 1.7 公里，包車 10 分）<span class="why">只走靠萬國建築那一小段平路，坐著看黃浦江夜景。天黑得早，這個時間剛好</span></dd></dl>
+      <dl class="slot meal"><dt>18:30 晚餐</dt><dd><strong>上海姥姥</strong>（九江路 399 號，二樓）<span class="why">家常本幫菜、價格實在，離外灘 770 公尺。<strong>但在二樓、人很多，去前先確認有無電梯</strong>，近期搬過位置要再查</span></dd></dl>
+      <dl class="slot"><dt>20:00</dt><dd>包車送回飯店</dd></dl>
+      <dl class="slot meal"><dt>宵夜</dt><dd><span class="pending">選配</span>　小楊生煎（人民大道 9 號，170 公尺）<span class="why">飯店走出去就到，但店面窄、座位擠。想吃就外帶回房</span></dd></dl>
+      <div class="alert"><b>用車 10 小時：08:30 上車、18:30 結束——外灘加晚餐很可能超時。</b>超一兩小時無所謂（人民幣 50／小時），但先知道。若想省，晚餐改在人民廣場附近、讓司機在 18:30 收工。</div>
+      <div class="rain"><b>雨天備案：</b>獅子林同樣有廊可躲。不想淋就改去<strong>中國崑曲博物館</strong>（中張家巷 14 號，免費、全室內、遊客少）。<br>傍晚的外灘改去<strong>外灘美術館</strong>（虎丘路 20 號，離外灘 430 公尺，免費），或乾脆回飯店休息，夜景挪到 Day 6。</div>
+    </div>
+  </article>
+
+  <article class="day is-full" id="d6">
+    <div class="day-head">
+      <span class="day-n">Day 6</span>
+      <span class="day-date">11/20 五</span>
+      <span class="day-city">上海</span>
+      <span class="tag full">完整日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店<span class="why">想吃生煎的話派一個人去小楊生煎（人民大道 9 號，170 公尺，7:30 開）買回來——店面窄、座位擠，別四個人一起去站著等</span></dd></dl>
+      <dl class="slot"><dt>09:30</dt><dd>出車 → <strong>外灘濱江</strong>白天，或人民公園周邊散步<span class="why">Day 5 傍晚已看過夜景，白天想不想再去可當天決定</span></dd></dl>
+      <dl class="slot"><dt>11:30</dt><dd>回飯店一帶</dd></dl>
+      <dl class="slot meal"><dt>12:00 午餐</dt><dd>人民廣場周邊<span class="why">飯店走出去就有，不必特別安排</span></dd></dl>
+      <dl class="slot"><dt>12:45–14:00</dt><dd>回飯店午休<span class="why">住人民廣場，這段用走的就行，不必等車</span></dd></dl>
+      <div class="split"><b>分組時段。</b></div>
+      <dl class="slot"><dt>14:00</dt><dd><strong>上海博物館</strong>（人民廣場館，<strong>225 公尺、走路 3 分</strong>）<span class="why">免費。2025/9/1 起試行免預約，出發前確認是否仍適用。16:00 停止入場</span></dd></dl>
+      <dl class="slot"><dt>16:00</dt><dd>出館，散步回飯店</dd></dl>
+      <dl class="slot meal"><dt>18:00 晚餐</dt><dd><strong>上海一號</strong>（西藏南路 237 號，六樓，890 公尺）<span class="why">米其林、分小包廂、安靜，電梯直上。紅燒肉配饅頭、清蒸魚都適合長輩</span></dd></dl>
+      <dl class="slot"><dt>20:00</dt><dd>回飯店<strong>收行李</strong><span class="why">明天 08:30 就要出發，今晚先整理好</span></dd></dl>
+      <dl class="slot meal"><dt>宵夜</dt><dd><span class="pending">不建議</span><span class="why">明天要早起趕飛機，今晚早點睡</span></dd></dl>
+      <div class="rain"><b>雨天備案：這天完全不怕下雨。</b>住人民廣場，上海城市規劃展示館 197 公尺、上海博物館 225 公尺、上海市歷史博物館 272 公尺，<strong>三館全在步行五分鐘內</strong>，是整趟濕冷天最強的一區。下大雨就放棄外灘，三館挑兩間走完一天。<br>上海博物館週五開館，不受週一閉館影響。</div>
+      <div class="alert"><b>用車 9 小時：09:30 上車、18:30 結束，餘裕 2 小時。</b>這天午休用走的、博物館也用走的，是七天裡最輕鬆的一天。</div>
+    </div>
+  </article>
+
+  <article class="day" id="d7">
+    <div class="day-head">
+      <span class="day-n">Day 7</span>
+      <span class="day-date">11/21 六</span>
+      <span class="day-city">上海 → 桃園</span>
+      <span class="tag">移動日</span>
+    </div>
+    <div class="day-body">
+      <dl class="slot meal"><dt>07:00 早餐</dt><dd>飯店，吃飽再出發<span class="why">今天只有機上簡餐，早餐要吃夠</span></dd></dl>
+      <dl class="slot"><dt>08:30</dt><dd>退房，專車前往浦東機場 T2（車程約 1 小時）<span class="why">提前 2 小時 35 分。四件行李全部託運、兩位長輩有輪椅協助走優先通道，這個提前量夠用</span></dd></dl>
+      <dl class="slot"><dt>09:30</dt><dd>抵達浦東 T2，辦理登機</dd></dl>
+      <dl class="slot meal"><dt>午餐</dt><dd>機上（<strong>CA195</strong> 供餐）<span class="why">想保險可在浦東航廈買點東西備著</span></dd></dl>
+      <dl class="slot"><dt>12:05</dt><dd>浦東 T2 起飛（A330-300，1 小時 55 分）</dd></dl>
+      <dl class="slot"><dt>14:00</dt><dd>桃園 T2 落地</dd></dl>
+      <dl class="slot"><dt>約 16:30</dt><dd>回到台中</dd></dl>
+      <div class="alert"><b>別晚於 09:00 出發。</b>08:30 是兼顧從容與不必太早起的折衷；08:45 還在安全範圍（提前 2 小時 20 分）。再晚就只剩 2 小時，遇到上海早高峰塞車會開始緊張。<br>Day 7 是送機單程、不是計時包車，出發時間可跟司機商量，記得在訂單備註寫明「08:30 人民廣場飯店出發，12:05 浦東航班」。</div>
+      <div class="rain"><b>雨天：</b>今天只有休息和搭車去機場，不受影響。</div>
+    </div>
+  </article>
+
+  <h3>已評估過但決定不排</h3>
+  <p>這些都討論過了，附上理由，不必重新提。</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>項目</th><th>不排的理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>宋城千古情</strong></td><td>演出只有 70 分鐘、有 14:00 下午場、劇場 26℃ 恆溫，坐不坐得住並不是問題。但它在之江路、離湖濱 12 公里，排進 Day 2 下午就得砍掉郭莊、午休也只剩一小時。四人票價約 ¥900（70 歲以上免大門票、只買演出票 ¥130），是整趟最貴的單一項目。<strong>用 ¥900 換掉一個更貼合這趟的點，不划算</strong>——郭莊小眾、幾乎無坡、遊客極少、門票十元。另外它是主題樂園裡的商業演出，園區是人造的宋代都市，跟整趟園林、湖、古寺、博物館的調性不同路。</td></tr>
+      <tr><td>豫園</td><td>上海最有代表性的江南園林，曾評估補進 Day 6 上午（離外灘 1.5 公里）。但人非常多，連原本那份 Trip.com 行程都自己寫「不進園林、只走外圍」。</td></tr>
+      <tr><td>靈隱寺、飛來峰、龍井、九溪、六和塔、城隍閣</td><td>都要爬山或大量台階。</td></tr>
+      <tr><td>三潭印月（小瀛洲）</td><td>島上台階多。這也是 Day 2 遊船「只坐船不上島」的原因。</td></tr>
+      <tr><td>虎丘</td><td>上山台階多。</td></tr>
+      <tr><td>西溪濕地洪園、金雞湖環湖觀光車</td><td>一個在餘杭、一個在工業園區離古城 8 公里，都是為了一個景點單程半小時以上。</td></tr>
+      <tr><td>留園、網師園、滄浪亭</td><td>都是園林。已經排了拙政園和獅子林，看第三座的邊際效益低，但體力成本相同。</td></tr>
+      <tr><td>河坊街、山塘街、南京路</td><td>走街類型，跟平江路、湖濱重複，而且雨天石板路滑。</td></tr>
+      <tr><td>東方明珠</td><td>排隊久、要登塔。<strong>雷峰塔補上了「坐電梯登高看全景」這個需求</strong>，而且便宜得多。</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>雨天怎麼辦</h2>
+  <p class="lead">11 月中的江南陰雨機率不低，所以每天都配了室內備案（寫在各日行程裡的綠色框）。但有幾個原則比備案清單更重要。</p>
+
+  <h3>長輩雨天的頭號風險是跌倒，不是感冒</h3>
+  <p>平江路、河坊街、園林裡的石板路，濕了以後相當滑。這比淋雨嚴重得多。兩件事要做：帶防滑底的鞋，以及——</p>
+  <div class="alert"><b>不要撐傘走路。</b>撐傘會佔掉一隻手、還會遮住視線和腳下。改用連帽雨衣或斗篷式雨披，兩隻手空出來，一手扶欄杆、一手扶人。這一條看起來小，實際上是雨天最有用的準備。</div>
+
+  <h3>三件事其實不受雨影響</h3>
+  <ul>
+    <li><strong>遊船照走。</strong>西湖畫舫和黃浦江遊船都是封閉有頂棚的船艙，小雨完全不影響，只有大風才停航。</li>
+    <li><strong>蘇州園林可以去。</strong>拙政園和獅子林都有大量迴廊、亭榭、廊橋可以躲雨，雨中園林反而更接近它原本的意境。只要走慢，別在濕石板上急行。</li>
+    <li><strong>博物館都有電梯和座位。</strong>這趟排的幾間都是新館或改建館，動線平坦、有休息區和廁所，是濕冷天最舒服的去處。</li>
+  </ul>
+
+  <h3>兩個會踩到的行政陷阱</h3>
+  <div class="alert"><b>一、公立博物館幾乎都週一閉館。</b>蘇州博物館、上海博物館、浙江省博物館都是週二至週日開放，週一閉館（法定假日除外）。而 <strong>Day 2（11/16）正好是週一</strong>——那天在杭州，沒有博物館可以當備案，只能靠湖畔居茶樓和 in77 商場。上海城市規劃展示館是少數週一照開的，但那天我們不在上海。</div>
+  <div class="alert"><b>二、免費不等於免預約。</b>蘇州博物館本館免費但需預約，<strong>提前 7 天早上 8 點開放，經常幾秒鐘就沒了</strong>。Day 4 是 11/18，要在 <strong>11/11 早上 8 點</strong>準時搶（中國與台灣同時區）。微信搜「蘇州博物館全預約」小程序，事先把四個人的證件資料都輸好。上海博物館同樣要預約。<br>這件事跟雨天無關——蘇州博物館本來就是 Day 4 下午的正式行程，沒搶到就整個落空。建議直接請包車業者或飯店代辦，這也是前面詢價單裡列「能否代辦實名門票預約」的原因。</div>
+
+  <h3>不必預約的幾個</h3>
+  <p>浙江西湖美術館、西湖博物館、中國崑曲博物館、外灘美術館、上海市歷史博物館都是免費且現場入場（歷史博物館還有屋頂平台可以看天際線）。南宋德壽宮遺址博物館也有台灣旅客反映現場憑台胞證登記即可免費入館、不需預約，不過館內為保護遺址刻意調暗燈光，長輩要走慢。</p>
+  <p class="pending">開放時間與預約規則以官方公告為準，出發前一週再確認一次。</p>
+</section>
+
+<section>
+  <h2>吃飯</h2>
+  <p class="lead">江南菜有一個對長輩不太友善的共同點：甜。蘇幫菜普遍加糖，本幫菜是濃油赤醬，杭幫菜也不少甜口。餐廳選得對只是一半，點菜方式才是關鍵。</p>
+
+  <h3>點菜原則</h3>
+  <ul>
+    <li><strong>少點這些</strong>：紅燒肉、東坡肉、松鼠桂魚、響油鱔糊。都是甜、油、重醬的代表，好吃但一道就夠四人分，不要點兩道。</li>
+    <li><strong>多點這些</strong>：清蒸魚、蟹粉豆腐、清炒蝦仁、白灼時蔬、雞火乾絲、醃篤鮮。軟、清淡、好咀嚼。</li>
+    <li><strong>每餐一定要有湯或粥。</strong>11 月的江南濕冷，熱湯比什麼都有用。</li>
+    <li><strong>開口請店家調整。</strong>蘇州可以說「少糖」，上海可以說「少油少醬油」，多數店家願意配合。</li>
+    <li><strong>湯麵優於炒麵炒飯。</strong>移動日和天冷的日子特別適合，坐下就能吃、不用等太久。</li>
+    <li><strong>四人點 3 到 4 道菜加一湯加主食就夠。</strong>江南份量普遍偏大，點多了浪費也吃不完。</li>
+  </ul>
+
+  <h3>避開用餐高峰</h3>
+  <p>老字號在 11:30 至 13:00、18:00 至 19:30 都要取號等位。<strong>把用餐時間提早到 11:00 和 17:30</strong>，幾乎都不用等。站著排隊四十分鐘對長輩的體力消耗，比走一座園林還多。</p>
+  <p>需要排隊的店就直接跳過。米其林推薦的方老大麵館（杭州）評價很好，但常態排到店外、有人等超過一小時——這種店這趟不要碰。</p>
+
+  <h3>餐廳整理</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>城市</th><th>店名與地址</th><th>適合</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr><td>杭州</td><td><strong>知味觀</strong><br><span class="pending">仁和路 83 號</span></td><td>Day 1 晚餐・早餐</td><td><strong>離仁和飯店 61 公尺</strong>，百年老店，每天 09:00–22:00。推薦蟹粉小籠、豬肉小籠、餛飩湯。二樓才是全服務區，帶長輩去先確認電梯</td></tr>
+      <tr><td>杭州</td><td>湖濱 28<br><span class="pending">湖濱路 28 號，君悅飯店一樓</span></td><td>正餐</td><td>不用排隊、平地有電梯、口味清爽。價位高</td></tr>
+      <tr><td>杭州</td><td>外婆家<br><span class="pending">湖濱路 3 號</span></td><td>午餐</td><td>便宜份量大，但要取號等位</td></tr>
+      <tr><td>杭州</td><td>湖畔居<br><span class="pending">湖濱聖塘景區 1 號</span></td><td>下午茶</td><td>三樓有西湖景觀陽台。價位偏高</td></tr>
+      <tr><td>杭州</td><td>湖濱銀泰 in77<br><span class="pending">延安路一帶</span></td><td>雨天備案</td><td>地下餐飲層，有電梯座位廁所</td></tr>
+      <tr><td>蘇州</td><td>松鶴樓<br><span class="pending">太監弄 72 號</span></td><td>晚餐</td><td>蘇幫菜老字號，觀前街旁。菜偏甜，記得說少糖</td></tr>
+      <tr><td>蘇州</td><td>裕麵堂<br><span class="pending">姑蘇區西側</span></td><td>晚餐</td><td>湯清油少、乾淨、可以慢慢吃。離觀前街約 2 公里要叫車</td></tr>
+      <tr><td>蘇州</td><td>朱鴻興麵館<br><span class="pending">宮巷 108 號</span></td><td>午餐</td><td>湯麵，坐下就能吃</td></tr>
+      <tr><td>蘇州</td><td>黃天源<br><span class="pending">觀前街浭泗巷 3 號</span></td><td>早餐</td><td>蘇式糕團老字號，粥好</td></tr>
+      <tr><td>蘇州</td><td>采芝齋<br><span class="pending">觀前街 91 號</span></td><td>點心・伴手禮</td><td>糕點甜度不高，順便買回台灣</td></tr>
+      <tr><td>上海</td><td>上海一號<br><span class="pending">西藏南路 237 號，六樓</span></td><td>正餐</td><td>米其林、分小包廂、安靜，電梯直上</td></tr>
+      <tr><td>上海</td><td>上海姥姥<br><span class="pending">九江路 399 號，二樓</span></td><td>家常菜</td><td>價格實在但很忙，去前確認電梯。近期搬過位置，先查一下</td></tr>
+      <tr><td>上海</td><td>小楊生煎<br><span class="pending">人民大道 9 號，7:30 開</span></td><td>早餐</td><td>店面窄座位擠。建議外帶回飯店</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="pending">地址與營業時間查詢當時為準，出發前再確認一次，老店搬遷或整修的情況不少。價位帶與是否需要訂位，也建議請包車業者或飯店代訂。</p>
+
+  <h3>走得到嗎</h3>
+  <p>虛線圈是從飯店區走出去的距離。實際座標算過，步行時間以平路每分鐘 75 公尺估——長輩會比這個慢，所以圈外的都建議叫車。</p>
+
+  <div class="maps">
+
+    <div class="map">
+      <h4>杭州　湖濱商圈</h4>
+      <figure>
+      <svg viewBox="0 0 460 400" role="img" aria-label="杭州湖濱商圈餐廳步行距離圖">
+        <path class="mp-water" d="M0 0 L86 0 Q70 60 90 112 Q104 160 76 212 Q58 270 94 332 Q110 372 98 400 L0 400 Z"/>
+        <text class="mp-wlabel" x="26" y="258">西湖</text>
+        <circle class="mp-ring" cx="180" cy="190" r="42"/>
+        <text class="mp-rlabel" x="215.694" y="156.306">250m</text>
+        <circle class="mp-ring" cx="180" cy="190" r="83"/>
+        <text class="mp-rlabel" x="244.681" y="127.319">500m</text>
+        <circle class="mp-ring" cx="180" cy="190" r="167"/>
+        <text class="mp-rlabel" x="304.069" y="67.931">1km</text>
+        <rect class="mp-hotel" x="173" y="183" width="14" height="14" rx="2"/>
+        <text class="mp-hlabel" x="168" y="188" text-anchor="end">飯店區</text>
+        <text class="mp-sub" x="168" y="203" text-anchor="end">湖濱 in77</text>
+        <circle class="mp-dot" cx="191.4" cy="218.6" r="6"/>
+        <text class="mp-label" x="203.4" y="215.6">外婆家</text>
+        <text class="mp-sub" x="203.4" y="230.6">185m　步行 3 分</text>
+        <circle class="mp-dot" cx="91.9" cy="121" r="6"/>
+        <text class="mp-label" x="103.9" y="118">湖濱 28</text>
+        <text class="mp-sub" x="103.9" y="133">671m　步行 9 分</text>
+        <circle class="mp-dot" cx="96.2" cy="86.1" r="6"/>
+        <text class="mp-label" x="108.2" y="83.1">湖畔居</text>
+        <text class="mp-sub" x="108.2" y="98.1">801m　步行 11 分</text>
+      </svg>
+      </figure>
+      <figcaption>三家全在步行圈內，這是選湖濱的好處。外婆家就在轉角，湖濱 28 和湖畔居都貼著湖邊，走過去的路本身就是散步。</figcaption>
+    </div>
+
+    <div class="map">
+      <h4>蘇州　觀前街</h4>
+      <figure>
+      <svg viewBox="0 0 460 400" role="img" aria-label="蘇州觀前街餐廳步行距離圖">
+        <circle class="mp-ring" cx="180" cy="220" r="67"/>
+        <text class="mp-rlabel" x="233.369" y="168.631">100m</text>
+        <circle class="mp-ring" cx="180" cy="220" r="133"/>
+        <text class="mp-rlabel" x="280.031" y="121.969">200m</text>
+        <circle class="mp-ring" cx="180" cy="220" r="200"/>
+        <text class="mp-rlabel" x="327.4" y="74.6">300m</text>
+        <rect class="mp-hotel" x="173" y="213" width="14" height="14" rx="2"/>
+        <text class="mp-hlabel" x="168" y="218" text-anchor="end">飯店區</text>
+        <text class="mp-sub" x="168" y="233" text-anchor="end">觀前街・平江路口</text>
+        <path class="mp-arrow" d="M305 164 L322 126" style="stroke-dasharray:2 3"/>
+        <circle class="mp-dot" cx="297.3" cy="163.6" r="6"/>
+        <text class="mp-label" x="330" y="130">黃天源</text>
+        <text class="mp-sub" x="330" y="145">195m　步行 3 分</text>
+        <path class="mp-arrow" d="M283 195 L322 186" style="stroke-dasharray:2 3"/>
+        <circle class="mp-dot" cx="275" cy="194.9" r="6"/>
+        <text class="mp-label" x="330" y="190">采芝齋</text>
+        <text class="mp-sub" x="330" y="205">147m　步行 2 分</text>
+        <path class="mp-arrow" d="M198 244 L322 246" style="stroke-dasharray:2 3"/>
+        <circle class="mp-dot" cx="189.7" cy="244.3" r="6"/>
+        <text class="mp-label" x="330" y="250">松鶴樓</text>
+        <text class="mp-sub" x="330" y="265">39m　出門就到</text>
+        <path class="mp-arrow" d="M252 249 L322 306" style="stroke-dasharray:2 3"/>
+        <circle class="mp-dot" cx="243.8" cy="249.4" r="6"/>
+        <text class="mp-label" x="330" y="310">朱鴻興麵館</text>
+        <text class="mp-sub" x="330" y="325">105m　步行 2 分</text>
+        <path class="mp-arrow" d="M140 150 L56 150"/>
+        <path d="M56 150 l9 -5 v10 z" fill="#4A5A56"/>
+        <text class="mp-label" x="98" y="138" text-anchor="middle">裕麵堂</text>
+        <text class="mp-sub" x="98" y="168" text-anchor="middle">1.9km　叫車 8 分</text>
+      </svg>
+      </figure>
+      <figcaption>蘇州是三個城市裡最集中的——四家老店全在觀前街三分鐘內，早餐、午餐、晚餐、下午點心都不用移動。只有裕麵堂在城區西側要叫車，值不值得跑那一趟，看那天的體力。</figcaption>
+    </div>
+
+    <div class="map">
+      <h4>上海　浦西</h4>
+      <figure>
+      <svg viewBox="0 0 460 400" role="img" aria-label="上海浦西餐廳與兩個候選飯店區步行距離圖">
+        <path class="mp-water" d="M420 0 Q408 70 422 142 Q436 216 416 292 Q402 350 418 400 L460 400 L460 0 Z"/>
+        <text class="mp-wlabel" x="438" y="206" text-anchor="middle">黃浦江</text>
+        <circle class="mp-walk" cx="308.3" cy="158.4" r="80"/>
+        <circle class="mp-walk" cx="151.7" cy="241.6" r="80"/>
+        <path class="mp-arrow" d="M294 174 L168 228"/>
+        <text class="mp-sub" x="205" y="226" text-anchor="middle">1.7km</text>
+        <rect class="mp-hotel" x="301.3" y="151.4" width="14" height="14" rx="2"/>
+        <text class="mp-hlabel" x="308.3" y="144.4" text-anchor="middle">外灘</text>
+        <rect class="mp-hotel" x="144.7" y="234.6" width="14" height="14" rx="2"/>
+        <text class="mp-hlabel" x="151.7" y="276.6" text-anchor="middle">人民廣場</text>
+        <circle class="mp-dot" cx="234.9" cy="181.9" r="6"/>
+        <text class="mp-label" x="246.9" y="178.9">上海姥姥</text>
+        <text class="mp-sub" x="246.9" y="193.9">外灘 771m・人廣 1.0km</text>
+        <circle class="mp-dot" cx="219.2" cy="300.3" r="6"/>
+        <text class="mp-label" x="231.2" y="297.3">上海一號</text>
+        <text class="mp-sub" x="231.2" y="312.3">外灘 1.7km・人廣 895m</text>
+        <circle class="mp-dot" cx="167.9" cy="239.9" r="6"/>
+        <text class="mp-label" x="155.9" y="236.9" text-anchor="end">小楊生煎・人民大道</text>
+        <text class="mp-sub" x="155.9" y="251.9" text-anchor="end">人廣 163m</text>
+        <circle class="mp-dot" cx="121.7" cy="195" r="6"/>
+        <text class="mp-label" x="109.7" y="192" text-anchor="end">小楊生煎・黃河路</text>
+        <text class="mp-sub" x="109.7" y="207" text-anchor="end">人廣 554m</text>
+        <text class="mp-rlabel" x="230" y="382" text-anchor="middle">綠色虛線圈為步行 10 分鐘範圍</text>
+      </svg>
+      </figure>
+      <figcaption><strong>上海這張圖是要拿來決定飯店的。</strong>兩個候選區的步行圈幾乎不重疊：住外灘，走得到的只有上海姥姥（約 770 公尺）；住人民廣場，兩家小楊生煎都在五百公尺出頭，上海一號約 900 公尺也還行，但去外灘看夜景要坐車。Day 5 傍晚和 Day 6 上午都排在外灘，所以住外灘動線比較順——代價是晚餐選擇少，得靠叫車。</figcaption>
+    </div>
+
+  </div>
+
+  <h3>付款</h3>
+  <p>現在多數店家以行動支付為主。出發前把支付寶或微信支付綁好境外信用卡，並帶少量人民幣現金備用——老字號和小店偶爾會遇到系統問題，長輩身上放個幾百元現金比較安心。</p>
+</section>
+
+<section>
+  <h2>機票</h2>
+  <p class="lead">2026/9/24 經易遊網開票，中國國際航空。四人同一組訂位。<span class="pending">訂位代號與訂單編號不公開，請向訂票人索取。</span></p>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>日期</th><th>航班</th><th>時間</th><th>航廈</th><th>機型・艙等</th></tr></thead>
+    <tbody>
+      <tr><td>11/15 日</td><td><strong>CA150</strong>　桃園 → 杭州蕭山</td><td>12:30–14:20（1h50m）</td><td>T2 → <strong>T4</strong></td><td>A321・經濟艙 S</td></tr>
+      <tr><td>11/21 六</td><td><strong>CA195</strong>　上海浦東 → 桃園</td><td>12:05–14:00（1h55m）</td><td>T2 → T2</td><td>A330-300・經濟艙 P</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>旅客</th><th>機票號碼</th></tr></thead>
+    <tbody>
+            <tr><td colspan="2" class="pending">旅客姓名與機票號碼不公開，請向訂票人索取</td></tr>
+    </tbody>
+    <tfoot><tr><td>四人總價</td><td class="num"><strong>NT$47,872</strong></td></tr></tfoot>
+  </table>
+  </div>
+  <p><strong>免費託運行李每人 1 件、各 23 公斤</strong>，四人四件剛好對上 28 吋 ×2、26 吋 ×1、20 吋 ×1。</p>
+
+  <div class="alert"><b>去程降落的是蕭山第四航廈（T4）。</b>接機備註務必寫明 T4，別讓司機跑錯航廈。</div>
+
+  <h3>退改條款：不可退票</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th></th><th>起飛前</th><th>起飛後</th></tr></thead>
+    <tbody>
+      <tr><td>去程改期</td><td>NT$1,500／人</td><td>NT$1,500／人</td></tr>
+      <tr><td>回程改期</td><td>NT$1,500／人</td><td>NT$1,500／人</td></tr>
+      <tr><td><strong>退票</strong></td><td><strong>不可退票</strong></td><td><strong>不可退票</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>改期另加易遊網服務費 NT$500／人，且更改後票價及稅費較高時須補足差額。<strong>四人改期一次約 NT$8,000。</strong></p>
+  <div class="alert"><b>機票已是沉沒成本，旅平險的「行程取消」保障現在是唯一退路。</b>這件事因此升為待辦中最急的一項——保險業務還沒照四人實際年齡重報，要趕快確認能涵蓋哪些原因、既往病史是否除外。<br>另外：若無法如期搭乘，<strong>必須在原訂起飛時間 24 至 72 小時前完成更改或取消機位</strong>，否則會被加收未登機費，甚至機票失效而無法更改。</div>
+
+  <h3>開票後立刻要做的三件事</h3>
+  <ol>
+    <li><strong>登記輪椅協助。</strong>中國國際航空桃園客服 <strong>00800-86-100-999</strong>，報訂位代號（不公開），兩位長輩、去回兩段一次登記，至少提前 48 小時。免費、不需醫師證明。</li>
+    <li><strong>預選座位。</strong>行程單上四人的預選座位都是空的，早點劃位才坐得在一起。打客服時一併處理。</li>
+    <li><strong>下卓伦的接機訂單</strong>並通知更新 Day 1、Day 7 時間。舊訂單 #26KK260744853 等新單成立後再取消。</li>
+  </ol>
+
+  <h3>機場輪椅服務</h3>
+  <p>航空公司的輪椅服務<strong>免費，而且不只借輪椅——是連人帶推</strong>。地勤在報到完成後推輪椅來接，走特殊通道最短捷徑過海關直接到登機門，上機優先登機，下機雖最後離艙但<strong>第一個抵達行李提領處</strong>。<strong>可一人隨行快速通關</strong>，兩位長輩各帶一位家人，四個人剛好一起走。不必給地勤小費。</p>
+  <p>桃園機場第一、二航廈出境服務台另有<strong>愛心輪椅，抵押證件免費租借</strong>（第一航廈 03-2735081、第二航廈 03-2735086），但<strong>僅限管制區外使用</strong>，不能取代航空公司的服務。兩個航廈也都有免費愛心服務車，招手即可。自己的輪椅航空公司免費託運，不計入行李額度。</p>
+
+  <h3>行李額度</h3>
+  <div class="alert"><b>兩個 28 吋箱要實際量過。</b>單件三邊長寬高總和<strong>不得超過 158 公分，且包含腳輪和把手</strong>。28 吋是臨界值、看箱款。出發前拿捲尺量一次。26 吋通常安全。</p>
+  <p>四人四件託運剛好用滿，<strong>回程沒有餘裕</strong>——買伴手禮多出的第 2 件託運要付費。去程刻意留空間，單件也別超過 23 公斤。</p>
+
+  <h3>報到時間</h3>
+  <p>行程單載明<strong>起飛前 2 至 3 小時</strong>辦理登機。桃園端 12:30 起飛，抓 10:30 到；浦東端 12:05 起飛，08:30 從飯店出發、09:00 到機場，是 3 小時。</p>
+
+  <h3>聯絡電話</h3>
+  <p>中國國際航空 桃園國際機場　<strong>00800-86-100-999</strong><br>中國國際航空 上海浦東機場　<strong>(86 10) 95583</strong>　／　(86 10) 5928-1588</p>
+</section>
+
+<section>
+  <h2>住宿</h2>
+  <p>還沒訂。<strong>位置的重要性高於房價</strong>——彈性分組完全依賴「隨時能走回房間休息」，飯店離景點遠，這個設計就破功了。</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>城市</th><th>日期</th><th>區域要求</th></tr></thead>
+    <tbody>
+      <tr><td>杭州</td><td>11/15–11/17</td><td>湖濱商圈，步行到西湖 5 分鐘以內</td></tr>
+      <tr><td>蘇州</td><td>11/17–11/19</td><td><strong>已定案：全季觀前街</strong>（觀前街 57-69 號）。四家老店全在步行 3 分鐘內</td></tr>
+      <tr><td>上海</td><td>11/19–11/21</td><td><strong>已定案：人民廣場一帶</strong>。三間博物館全在步行五分鐘內</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>候選飯店</h3>
+  <p>每個城市挑三間，距離都用實際座標算過，步行時間以平路每分鐘 75 公尺估——長輩會比這個慢。九間都還沒訂，你們挑完我再幫你確認房型。</p>
+
+  <h4 style="font-family:var(--serif);font-size:1.15rem;margin:2rem 0 .3rem">杭州　湖濱</h4>
+    <div class="opts">
+      <div class="opt pick">
+        <h5>仁和飯店　郵電路 86 號<span class="pickmark">我會選這間</span></h5>
+        <p class="dist">湖濱 in77 步行 1 分　西湖東岸 5 分</p>
+        <p>三間裡離西湖和商圈最近，正好落在 Day 1 晚餐和 Day 2 遊船的動線上。旅客提到就在西湖前面、走到碼頭約五分鐘，房間乾淨寬敞，櫃檯還會幫忙把行李推到叫車處。</p>
+        <p class="cav">要注意：入口不在大馬路上、招牌不明顯，網約車司機常找不到門口。請包車司機事先確認落客點。</p>
+      </div>
+      <div class="opt">
+        <h5>望湖賓館　環城西路 2 號</h5>
+        <p class="dist">西湖東岸 步行 9 分　湖濱 in77 10 分</p>
+        <p>房間寬敞、看得到西湖，頂樓中餐廳有湖景。房間大對長輩是實質好處，行李攤開來不會卡。館內有英文較好的服務人員。</p>
+        <p class="cav">要注意：離湖濱商圈十分鐘，晚餐選擇不如仁和方便。西式餐點評價普遍不佳，早餐挑中式的吃。</p>
+      </div>
+      <div class="opt">
+        <h5>Canopy by Hilton 西湖　國貨路 2 號</h5>
+        <p class="dist">湖濱 in77 步行 7 分　西湖東岸 11 分</p>
+        <p>新、現代、乾淨。希爾頓體系代表電梯和浴室規格可預期，乾濕分離與防滑的機率比同價位本地飯店高。</p>
+        <p class="cav">要注意：房間偏小，兩人住會有點擠。有旅客反映加床收費與訂房內容有落差，訂房時把房型、床型、人數寫清楚並留存紀錄。</p>
+      </div>
+    </div>
+
+  <h4 style="font-family:var(--serif);font-size:1.15rem;margin:2rem 0 .3rem">蘇州　已定案：全季觀前街</h4>
+  <div class="alert"><b>包車確認後，這個判斷反轉了。</b>我原本推薦平江府，理由是「早上走去園林那段路是長輩體力的起點」——但那建立在還沒確定包車的前提上。<br>七天全包確認後，到拙政園平江府 724 公尺、觀前街 1.5 公里，<strong>有車的話只差三分鐘</strong>，不足以支撐決定。<br><b>而有一件事車子幫不上忙：晚餐時司機已經收工。</b>市區日 8 小時，09:00 上車就是 17:00 結束。蘇州有<strong>兩頓晚餐</strong>（Day 3 抵達當晚、Day 4）都在司機下班之後——住觀前街走出門 3 分鐘，住平江府每晚要自己叫兩趟滴滴。11 月晚上濕冷，兩位長輩吃完飯在路邊等車，這個差別發生兩次。</div>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th></th><th class="num">餐廳群</th><th class="num">拙政園</th><th class="num">蘇州博物館</th><th class="num">平江路南口</th></tr></thead>
+    <tbody>
+      <tr><td><strong>全季觀前街</strong></td><td class="num"><strong>235m／走 3 分</strong></td><td class="num">1.5km／車 6 分</td><td class="num">1.3km／車 5 分</td><td class="num">584m／走 8 分</td></tr>
+      <tr><td>書香府邸・平江府</td><td class="num">1.3km／走 17 分</td><td class="num">724m／走 10 分</td><td class="num">790m／走 11 分</td><td class="num">618m／走 8 分</td></tr>
+      <tr><td>耨嵐精品</td><td class="num">1.1km／走 15 分</td><td class="num">637m／走 8 分</td><td class="num">631m／走 8 分</td><td class="num">549m／走 7 分</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>另外查過的折衷位置都不夠好：<strong>印象憶宿</strong>（觀前街 210m）只有 4 則評論、樣本太小；<strong>怡曼</strong>（平江路 189 號）在平江路上，旅客反映「位在巷弄內要從大馬路走進去」、有街道噪音——正是石板路拖行李的問題；<strong>Hovle Mansion</strong>（臨頓路）2 則評論，其中一則是室內抽菸的嚴重投訴。</p>
+  <p><strong>放棄平江府的代價</strong>：它的私家園林「半園」是清代文物、1982 年列蘇州市文物保護單位，現存約 1,130 平方公尺，以南北狹長水池為中心，環繞船廳、水榭、曲廊、半亭，建築多以半橋半廊等「半」為特徵，園東北角的二層半重簷樓閣是蘇州園林孤例。白塔東路那側入口長年關閉，<strong>只能從飯店園區內進入</strong>。這是真的獨家價值——但蘇州只住兩晚，而晚餐的方便性是每天都在用的。</p>
+  <div class="alert"><b>訂全季時務必明確要求無菸樓層。</b>有旅客反映房間有煙味，這是它唯一的已知風險。</div>
+    <div class="opts">
+      <div class="opt">
+        <h5>全季觀前街　觀前街 57-69 號</h5>
+        <p class="dist">觀前街餐廳群 步行 3 分　拙政園 20 分</p>
+        <p>安全牌。全季是中國連鎖中價位品牌，電梯、浴室、清潔度都可預期。位置在觀前街正中心，前面那四家老店全在三分鐘內，早餐午餐晚餐下午點心都不用移動。房間評價是「寬敞」。</p>
+        <p class="cav">要注意：有旅客反映房間有煙味，訂房時明確要求無菸樓層。到拙政園和獅子林都得坐車。</p>
+      </div>
+      <div class="opt pick">
+        <h5>書香府邸・平江府　白塔東路 60 號<span class="pickmark">我會選這間</span></h5>
+        <p class="dist">拙政園 步行 10 分　觀前街餐廳群 17 分</p>
+        <p>這間有自己的私家園林「半園」，五百年歷史。對這趟的意義很實際——兩位長輩不必出門就能坐在園子裡喝茶，體力不好的那天留在飯店也不算浪費一天。環境安靜乾淨，靠平江路和河道，走到拙政園、蘇州博物館、獅子林都在十分鐘上下。</p>
+        <p class="cav">要注意：有旅客反映房間偏小、採光一般。訂房時要求較大房型，並直接問清楚有沒有電梯。吃飯要叫車回觀前街，或請飯店推薦附近的。</p>
+      </div>
+      <div class="opt">
+        <h5>耨嵐精品酒店　白塔東路 221 號</h5>
+        <p class="dist">拙政園 步行 8 分　觀前街餐廳群 15 分</p>
+        <p>只有 28 間房的傳統風格改建旅館，服務評價很好，離平江路、蘇州博物館、拙政園都很近。</p>
+        <p class="cav">要注意：<strong>評論數只有個位數，而且是小型精品旅館，很可能沒有電梯。</strong>訂房前一定要先確認電梯和浴室，問不到答案就不要考慮。</p>
+      </div>
+    </div>
+  <p class="pending">我排除掉的：觀前街一帶還有幾家連鎖，但評論反覆提到整棟菸味、設備老舊，其中一家還有「整修期間仍照收訂單」的糾紛紀錄。以你們的組合我不建議。</p>
+
+  <h4 style="font-family:var(--serif);font-size:1.15rem;margin:2rem 0 .3rem">上海　已定案住人民廣場</h4>
+  <div class="alert"><b>區域已定，但候選只剩一間。</b>先前列的三間裡，外灘智選假日與外灘茂悅都在外灘，只有 JW 萬豪明天廣場在人民廣場。<strong>需要再找兩間同區、不同價位的候選</strong>——JW 是五星，房價可能高於預算表假設的 ¥670／房晚。以下保留三間供對照。</div>
+    <div class="opts">
+      <div class="opt pick">
+        <h5>外灘智選假日　近中山東一路<span class="pickmark">我會選這間</span></h5>
+        <p class="dist">外灘 步行 4 分　人民廣場 20 分</p>
+        <p>距外灘三百公尺。Day 5 傍晚和 Day 6 上午都排在外灘，走出門就到。新建、房間寬敞乾淨、地鐵在對面、洗衣機免費，價位是三間裡最低的。</p>
+        <p class="cav">要注意：走得到的餐廳只有上海姥姥，其他晚餐都要叫車。上海博物館要坐車二十分鐘。</p>
+      </div>
+      <div class="opt">
+        <h5>外灘茂悅大酒店　黃浦路 199 號</h5>
+        <p class="dist">外灘 步行 12 分　人民廣場 33 分</p>
+        <p>五星級，房間寬敞，浴室有雙洗手台和浴缸——硬體規格最可預期的一間。頂樓酒吧看得到天際線。</p>
+        <p class="cav">要注意：在外白渡橋北側的虹口，離外灘核心 870 公尺。有旅客反映加床承諾未落實、部分服務與價格不相稱。價位最高。</p>
+      </div>
+      <div class="opt">
+        <h5>JW 萬豪明天廣場　南京西路 399 號</h5>
+        <p class="dist">人民廣場 步行 5 分　上海博物館 7 分</p>
+        <p>如果決定住人民廣場，這是最穩的一間。房間寬敞、服務評價高、禮賓部會主動協助安排交通。兩家小楊生煎和上海博物館都走得到。</p>
+        <p class="cav">要注意：到外灘兩公里，Day 5 傍晚和 Day 6 上午都得坐車過去。</p>
+      </div>
+    </div>
+  <p><strong>選人民廣場的實質好處</strong>：Day 6 的午休變成用走的，不必等車；而且三間博物館都在步行五分鐘內，<strong>那天完全不怕下雨</strong>。兩趟外灘要坐車，但包車本來就含，成本是零。</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>從人民廣場走得到</th><th class="num">距離</th></tr></thead>
+    <tbody>
+      <tr><td>上海城市規劃展示館</td><td class="num">197 m</td></tr>
+      <tr><td>上海博物館</td><td class="num">225 m</td></tr>
+      <tr><td>上海市歷史博物館</td><td class="num">272 m</td></tr>
+      <tr><td>小楊生煎（人民大道）</td><td class="num">170 m</td></tr>
+      <tr><td>小楊生煎（黃河路）</td><td class="num">560 m</td></tr>
+      <tr><td>上海一號</td><td class="num">890 m</td></tr>
+      <tr><td>上海姥姥</td><td class="num">1.0 km</td></tr>
+      <tr><td>外灘</td><td class="num">1.7 km（搭車）</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>訂房速查表</h3>
+  <p>每間 2 晚、每晚 2 房，共 12 房晚。訂房時姓名拼音<strong>照台胞證填寫，不自行改字、加空格或換寫法</strong>。</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>城市</th><th>入住／退房</th><th>首選</th><th>備案</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>杭州</strong></td>
+        <td>11/15 入<br>11/17 退</td>
+        <td><strong>仁和飯店</strong><br><span class="pending">郵電路 86 號<br>+86 571 8718 3666<br>in77 走 1 分・西湖東岸 5 分<br><strong>知味觀 61 公尺</strong></span></td>
+        <td>望湖賓館（環城西路 2 號）<br>Canopy by Hilton（國貨路 2 號）</td>
+      </tr>
+      <tr>
+        <td><strong>蘇州</strong></td>
+        <td>11/17 入<br>11/19 退</td>
+        <td><strong>全季酒店觀前街店</strong><br><span class="pending">觀前街 57-69 號<br>餐廳群走 3 分</span></td>
+        <td>印象憶宿（觀前街北局一弄 3 號）<br>書香府邸・平江府（白塔東路 60 號）</td>
+      </tr>
+      <tr>
+        <td><strong>上海</strong></td>
+        <td>11/19 入<br>11/21 退</td>
+        <td><strong>Radisson Blu 新世界</strong><br><span class="pending">南京西路 88 號<br>+86 21 6359 9999<br>人民廣場 7 分・上博 9 分</span></td>
+        <td>Park Hotel 國際飯店（南京西路 170 號）<br>JW 萬豪明天廣場（南京西路 399 號）</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>透過哪個平台訂</h3>
+  <p><strong>Trip.com 為主</strong>——理由不是價格，是它<strong>可以篩選「可接待港澳台旅客」的飯店</strong>，其他平台沒有這個功能。台幣計價、有中文客服。訂完可用 Agoda 比一次價，但 Agoda 沒有涉外篩選，便宜很多才值得自己打電話確認。</p>
+  <p>Booking.com 中國飯店庫存少、部分不上架；<strong>攜程中國版不要用</strong>（需大陸支付與身分證）。</p>
+  <div class="alert"><b>「只有涉外飯店才能接待台灣人」已不是正確的選房原則。</b>2024 年 7 月中國商務部等七部門聯合發布通知，要求地方部門與網路平台不應以「資質要求」作為門檻限制業者接待境外人員；上海 2025 年施行的《旅館業單位住宿登記規定》把<strong>台胞證明列為境外人員有效證件</strong>。<br>但政策鬆綁不代表每一家前台都熟悉操作。<strong>如家、漢庭、全季、亞朵、希爾頓、萬豪這類連鎖品牌基本都有涉外接待資質</strong>——三間首選裡只有<strong>仁和不是連鎖，是唯一要打電話確認的</strong>。<br>問法要精準：<strong>「您好，我是台灣旅客，持台胞證入住，請問可以辦理公安住宿登記嗎？」</strong>比問「台灣人能不能住」有效得多。對方仍不確定就換一家，別硬凹。</div>
+  <p>入住時飯店會查驗台胞證並登錄公安系統，<strong>這是飯店的責任，你不用自己跑派出所</strong>。</p>
+
+  <h3>訂房時要問清楚的</h3>
+  <p>三間共通的五項：</p>
+  <ul>
+    <li><strong>浴室是否乾濕分離、有無防滑地面或扶手、有沒有淋浴椅</strong>——長輩出遊最常出事的地方就是飯店浴室，這比房型大小重要得多。用電話或訊息確認，不要只看照片</li>
+    <li>可否指定低樓層</li>
+    <li>電梯是否直達客房層</li>
+    <li>是否含早餐（四人兩房、六個早上，外出找早餐對長輩不划算）</li>
+    <li>兩間房可否安排相鄰</li>
+  </ul>
+  <p>各自要多問的一項：</p>
+  <ul>
+    <li><strong>仁和</strong>——確認台胞證可辦住宿登記。另外它<strong>入口不在大馬路上、招牌不明顯</strong>，旅客反映網約車司機常找不到門口，<strong>要把落客點問清楚並告訴卓伦司機</strong></li>
+    <li><strong>全季觀前街</strong>——<strong>明確指定無菸樓層</strong>，有旅客反映房間有煙味，這是它唯一的已知風險</li>
+    <li><strong>Radisson Blu</strong>——要求<strong>遠離施工面的房間</strong>，有旅客反映過施工噪音（館方當下有處理）</li>
+  </ul>
+</section>
+
+<section>
+  <h2>包車</h2>
+  <p>行李是 <strong>28 吋 ×2、26 吋 ×1、20 吋 ×1</strong>，乘客 4 位。輪椅目前暫不納入討論。</p>
+  <div class="alert"><b>車型問題已解決：7 人座就夠。</b>平台商品的規格寫明「7 人座商務車最多可坐 6 人，可放置 4 件 26-28 吋行李箱」（別克 GL8 級距）。你們的行李剛好在規格內，那個 20 吋比規格小、更寬鬆。<br><strong>所以不需要升級 9 人座</strong>——議價時要記住這點，業者主動給 9 人座不構成加價理由。<br>仍建議要求對方回覆<strong>具體車款</strong>，不要接受「商務車」這種籠統說法：有車款才能自己查空間，現場來的車不符也才有依據。</div>
+  <p>順帶一提：若之後決定租折疊輪椅，折疊後可以放在空著的座位上，不必佔後車廂——四個人坐 7 人座還有兩個空位。所以「租輪椅」和「行李放得下」不互斥，不必二選一。</p>
+  <h3>要包含的路段</h3>
+  <ul>
+    <li>蕭山機場 → 杭州市區</li>
+    <li>杭州 → 蘇州（約 180 公里）</li>
+    <li>蘇州 → 上海（約 100 公里）</li>
+    <li>上海市區 → 浦東機場</li>
+    <li>三個城市的市區用車</li>
+  </ul>
+  <h3>業界計價基準</h3>
+  <p>常見是每天以「10 小時／100 公里」為基準，超時每小時加收 30 至 80 元人民幣、超公里每公里 3 至 5 元。<strong>三個跨城日一定會爆 100 公里</strong>，分組的中途接送也會吃掉時數，所以要求跨城日單獨報價、不套用 100 公里基準。</p>
+  <h3>報價單上必須寫明</h3>
+  <ul>
+    <li>具體車款（7 人座即可，行李為 28 吋 ×2、26 吋 ×1、20 吋 ×1）</li>
+    <li>一天可能需要多跑一趟送回飯店（分組接送）</li>
+    <li>三個跨城日的單獨報價</li>
+    <li>超時與超公里的費率上限</li>
+    <li>高速過路費、停車費、司機食宿由誰負擔</li>
+    <li>能否代辦景點實名門票預約（蘇州博物館 11/18、上海博物館 11/20、拙政園與獅子林 70 歲以上優惠票）</li>
+    <li>協助完成赴陸行前登錄</li>
+    <li>旅行業責任險投保證明</li>
+    <li>西湖景區的交通管制與落客點安排（見下）</li>
+  </ul>
+  <h3>西湖景區的落客點要先問清楚</h3>
+  <div class="alert"><b>西湖周邊在週末與法定假日有嚴格交通管制</b>（單雙號限行、景區環線限行）。帶長輩遇到限行會被迫走一大段路。<br>Day 2 是週一，平日限行機率低，但<strong>雷峰塔和郭莊都在西湖景區內，落客點在哪直接決定長輩要走多遠</strong>。務必問清楚車輛能停到哪裡、有沒有景區指定的臨停接駁點。<br>這個問題也順便測出對方熟不熟——答得出接駁點安排的，通常是真的帶過長輩團。</div>
+
+  <h3>建議比三種不同管道，不是三家同類</h3>
+  <p>專營江南包車的台灣旅行社很少，市場很薄。與其硬找三家同類型，不如三種管道各一家——報價結構完全不同，比起來才看得出取捨。</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>項目</th><th>台灣旅行社</th><th>台灣旅遊平台</th><th>大陸平台</th></tr></thead>
+    <tbody>
+      <tr><td>代表</td><td>小滿旅行社 GOCHINA<br><span class="pending">交觀甲字第 881300 號</span></td><td>KKday、Klook・趣吧</td><td>Trip.com（攜程）</td></tr>
+      <tr><td>狀態</td><td><strong>詢價中</strong></td><td>需新增</td><td><strong>已有 ¥9,000 報價</strong></td></tr>
+      <tr><td>七天跨城客製</td><td>可以</td><td>多為單日或接送機的標準化商品，需走客製詢價入口</td><td>可以</td></tr>
+      <tr><td>保障</td><td>旅行業責任險，適用台灣法律，爭議可向觀光署申訴</td><td>平台申訴管道、台幣刷卡</td><td>平台申訴，爭議適用對岸規則</td></tr>
+      <tr><td>門票實名代辦</td><td>明確可協助</td><td>通常不行</td><td>不確定</td></tr>
+      <tr><td>加成</td><td>較高</td><td>中等</td><td>較低</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>第三家不用重新找。</strong>Trip.com 那份 ¥9,000（七天含四段跨城）可以直接當比價基準，只要記得它的涵蓋範圍不明、而且 65% 不可取消。所以實際上只需要再加一家平台就湊滿三個比較點。</p>
+  <p>平台這條路有個實質限制：<strong>不要直接下訂單日產品去拼湊</strong>。拼出來的總價通常比整包貴，四段跨城會變成四筆獨立訂單，出問題沒人負責到底。另外同一個行程在 KKday 和 Klook 上可能有多個不同供應商、價差懸殊，兩邊都要查，並看清額外費用說明與取消政策。</p>
+
+  <h3>不推薦的三條路</h3>
+  <ul>
+    <li><strong>直接找大陸司機（微信談）</strong>——最便宜，但要微信支付、沒有台灣求償途徑、糾紛幾乎無解。</li>
+    <li><strong>大陸本地包車公司直接聯繫</strong>——同樣問題，加上人在台灣事前無法查證對方資質。</li>
+    <li><strong>以「考察團」名義包裝的業者</strong>——觀光署正在查核這一塊，保障反而不明確。</li>
+  </ul>
+
+  <div class="alert"><b>決定：採用卓伦，小滿不列入考慮。</b>價差 NT$37,389（2.21 倍）已超出議價能處理的範圍——就算談下三成仍貴一倍。<br>但小滿那份報價有實質貢獻：<strong>它提供了一份寫得清楚的條款清單</strong>。沒有它，不會想到要問每日時數上限、超時與超里程費率、跨城日單獨計價、司機食宿歸屬。<strong>尤其是保險——他們主動揭露 71 至 90 歲旅客的保障額度通常只有一般年齡層約四分之一，並建議自行加保，而卓伦的商品完全沒提保險。</strong>這個提醒的價值高於報價本身。以下對照表保留，當作條款參考。</div>
+
+  <h3>包車比價結果</h3>
+  <p>匯率以 1 USD ≈ 31.5 TWD、1 CNY ≈ 4.3 TWD 計。粗體為實際查到的價格，其餘為估算。</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>路段</th><th>時數／里程</th><th class="num">KKday 卓伦</th><th class="num">小滿（已放棄）</th></tr></thead>
+    <tbody>
+      <tr><td>Day 1 蕭山機場接機</td><td>點對點・免費等候 90 分＋航班追蹤</td><td class="num"><strong>NT$1,127</strong></td><td class="num">—</td></tr>
+      <tr><td>Day 2 杭州市區</td><td>8h／100km</td><td class="num"><strong>NT$5,017</strong></td><td class="num">約 NT$8,460</td></tr>
+      <tr><td>Day 3 杭州→蘇州</td><td>10h</td><td class="num"><strong>NT$7,376</strong></td><td class="num">約 NT$18,400</td></tr>
+      <tr><td>Day 4 蘇州市區</td><td>8h・<strong>里程未載明</strong></td><td class="num"><strong>NT$5,017</strong></td><td class="num">約 NT$8,460</td></tr>
+      <tr><td>Day 5 蘇州→上海</td><td>10h</td><td class="num"><strong>NT$6,954</strong></td><td class="num">約 NT$18,400</td></tr>
+      <tr><td>Day 6 上海市區</td><td>9h／120km</td><td class="num"><strong>NT$4,371</strong></td><td class="num">約 NT$8,460</td></tr>
+      <tr><td>Day 7 上海→浦東送機</td><td>點對點・免費等候 30 分</td><td class="num"><strong>NT$939</strong></td><td class="num">—</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>七天純車合計</td><td></td><td class="num"><strong>NT$30,801</strong></td><td class="num">NT$68,190</td></tr>
+    </tfoot>
+  </table>
+  </div>
+  <p>兩個跨城日條件完全相同——10 小時一日包車、7 人座商務車、含全程油費停車費過路費司機餐費——<strong>價差穩定在 2.5 倍，不是單一異常值</strong>。<strong>七筆全部是實價</strong>，七天合計差 NT$37,389，2.21 倍。</p>
+
+  <div class="alert"><b>蘇州市區那份沒寫里程上限。</b>杭州的明確寫「全程 100 公里以內，超里程人民幣 5／公里」，蘇州這份只有時數條款、沒有里程。Day 4 全天不到 10 公里，實務上不會有事，但<strong>下訂時值得問一句</strong>——留一個未定義的欄位，正是小滿那份最讓人不放心的地方，別在這邊重複同樣的問題。</div>
+
+  <h3>計價條款終於有市場基準了</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th></th><th>時數</th><th>里程</th><th>超時</th><th>超里程</th></tr></thead>
+    <tbody>
+      <tr><td>卓伦（杭州市區）</td><td>8 小時</td><td>100 km</td><td>¥50／時</td><td><strong>¥5／km</strong></td></tr>
+      <tr><td>卓伦（蘇州市區）</td><td>8 小時</td><td><strong>未載明</strong></td><td>¥50／時</td><td>未載明</td></tr>
+      <tr><td>卓伦（上海市區）</td><td>9 小時</td><td>120 km</td><td>¥50／時</td><td>—</td></tr>
+      <tr><td>業界基準</td><td>10 小時</td><td>100 km</td><td>¥30–80／時</td><td>¥3–5／km</td></tr>
+      <tr><td>小滿</td><td>10 小時</td><td><strong>未定義</strong></td><td>「500 元」幣別不明</td><td><strong>未定義</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>卓伦的超里程費率落在業界基準上緣、超時費在中段，都正常。<strong>小滿那兩個空白現在有具體數字可以要求他填。</strong></p>
+  <p>小滿給 10 小時、卓伦市區日給 8 小時，這確實是小滿的優勢。但差那 2 小時要多付約 NT$3,443（NT$5,017 對 NT$8,460），換算一小時 NT$1,700，<strong>比超時費 NT$215 貴八倍</strong>——直接買便宜的、真超時再補，划算得多。</p>
+
+  <h3>條件已全部確認（9/18 卓伦回覆）</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>項目</th><th>卓伦的回覆</th></tr></thead>
+    <tbody>
+      <tr><td><strong>午休接送</strong></td><td><strong>含。</strong>「每天包車時間內，您可以回酒店休息的」——彈性分組的核心條件成立，Day 2、4、6 的排法不用改</td></tr>
+      <tr><td><strong>計時起點</strong></td><td><strong>從上車開始算，不是司機出車。</strong>司機從車庫開過來的時間不計入</td></tr>
+      <tr><td><strong>Day 3 計時</strong></td><td>同上——<strong>從上午在杭州市區上車就起算 10 小時</strong>，中停寒山寺涵蓋在內</td></tr>
+      <tr><td><strong>接機等候</strong></td><td><strong>90 分鐘，從航班實際落地時間起算</strong>，也可指定時間接機</td></tr>
+      <tr><td>西湖落客點</td><td>「具體要當天司機才知道，不過我們會盡量停的近一點，讓老人家少走路」</td></tr>
+      <tr><td>司機協助上下車搬行李</td><td><span class="pending">不追問，自行處理</span></td></tr>
+      <tr><td>蘇州市區里程上限</td><td><span class="pending">未載明，但「按行程進行、不算超公里費用」已涵蓋</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>西湖落客點那題他答不出來，但<strong>答得誠實</strong>——景區臨停管制每天浮動，遠端本來就保證不了。沒有硬掰反而是加分，而且「讓老人家少走路」表示他理解需求。</p>
+
+  <h3>以「從上車起算」重新核對時數</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th></th><th>上車</th><th>預計結束</th><th class="num">額度</th><th class="num">餘裕</th></tr></thead>
+    <tbody>
+      <tr><td>Day 2 杭州</td><td>09:30</td><td>16:30</td><td class="num">8h</td><td class="num">1 小時</td></tr>
+      <tr><td>Day 3 杭州→蘇州</td><td>08:30</td><td>17:30（含寒山寺）</td><td class="num">10h</td><td class="num">1.5 小時</td></tr>
+      <tr><td>Day 4 蘇州</td><td>09:00</td><td>16:30</td><td class="num">8h</td><td class="num"><strong>0.5 小時</strong></td></tr>
+      <tr><td>Day 5 蘇州→上海</td><td>08:30</td><td>18:30（外灘夜景）</td><td class="num">10h</td><td class="num"><strong>剛好</strong></td></tr>
+      <tr><td>Day 6 上海</td><td>09:30</td><td>16:30</td><td class="num">9h</td><td class="num">2 小時</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>Day 4 和 Day 5 最緊。</strong>Day 5 若在外灘多待、或晚餐讓司機等，就會超時——人民幣 50 一小時（約 NT$215），不是大錢但先知道。</p>
+  <p>另外：<strong>不必再找第三家比價了。</strong>卓伦的七筆價格內部一致（市區日 8 小時約 NT$5,000、跨城日 10 小時約 NT$7,000、機場接送約 NT$1,000），沒有哪一筆是異常低價來吸引人、其他筆偷偷加回去——這種內部一致性本身就是可信度的訊號。加上商家 1,534 則評價 4.8、回覆率 99%、工商登記查得到。繼續比價的邊際效益不高。</p>
+
+  <h3>不必在「省錢」和「舒適」之間選</h3>
+  <p>市區日只要五千，所以 Day 4 和 Day 6 沒有必要為了省錢改叫滴滴。五段方案（Day 1、2、3、5、7 包車，4、6 叫車）約 NT$25,400；七天全包約 NT$34,600。<strong>差 NT$9,000，買到的是 Day 4 與 Day 6 的午休接送、雨天不必在路邊等車，以及蘇州飯店可以自由選觀前街或平江府</strong>，不必為了走得到而綁定。</p>
+  <p>以兩位 72–77 歲長輩來說，我建議七天全包——而且總價仍只有小滿的一半。</p>
+
+  <h3>接機的條款查過了，沒問題</h3>
+  <p>接機和送機的等候條款不同，而接機這邊給得很足：<strong>免費等候 90 分鐘</strong>（送機只有 30 分鐘），而且<strong>司機依航班動態提供服務</strong>——系統自動追蹤航班，延誤不必自己通知。18:15 落地，就算入境查驗慢、行李轉盤久、四個大箱慢慢推，90 分鐘綽綽有餘。</p>
+  <p><strong>舉牌接機免費（USD 0）。</strong>蕭山國際到達出口人多，兩位長輩不必在人群裡找車、不必打電話溝通位置，出關就看到牌子。零元買掉一個實際的麻煩。</p>
+  <div class="alert"><b>但接機要填航班編號才能送出訂單。</b>所以這一筆必須等機票開票、拿到航班號之後才能訂——這是「先訂機票」的另一個理由。<br>另外兩件事：送機截圖的上車地點是範例地址（徐匯區），從外灘或人民廣場到浦東較遠，<strong>填實際地址後要再確認金額</strong>；行李欄位標上限 4 件，你剛好 4 件、沒有餘裕。</div>
+
+  <h3>條款逐項對照</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th></th><th>小滿</th><th>卓伦</th></tr></thead>
+    <tbody>
+      <tr><td>取消條款</td><td>未提供</td><td><strong>3 天前免費取消</strong></td></tr>
+      <tr><td>超時費</td><td>「500 元」幣別不明</td><td>人民幣 50／時</td></tr>
+      <tr><td>超里程</td><td><strong>未定義</strong></td><td>人民幣 5／km</td></tr>
+      <tr><td>接機等候</td><td>未提及</td><td><strong>90 分鐘＋航班追蹤</strong></td></tr>
+      <tr><td>舉牌接機</td><td>未提及</td><td><strong>免費</strong></td></tr>
+      <tr><td>乘客保險</td><td>意外 20 萬＋醫療 3 萬人民幣</td><td>未提及</td></tr>
+      <tr><td>法律保障</td><td><strong>台灣旅行業責任險、適用台灣法律</strong></td><td>平台申訴（KKday 為台灣公司）</td></tr>
+      <tr><td>即時支援</td><td><strong>專屬 LINE 群組、台灣客服</strong></td><td>商家回覆 4 小時內</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>卓伦在多數條款上其實更明確。小滿剩下的優勢是<strong>台灣旅行業責任險、適用台灣法律、中文即時支援</strong>——這些有價值，但不值 NT$37,700，那是整趟預算的 22%。</p>
+
+  <h3>把小滿那四天拆開看</h3>
+  <p>小滿的「純車四天」是 NT$42,800，涵蓋 Day 1、3、5、7。用市價拆：兩趟機場接送約 NT$1,878、兩個跨城日約 NT$14,330，<strong>合計約 NT$16,200——小滿收 NT$42,800，2.6 倍。</strong></p>
+
+  <h3>上海是最划算的一天</h3>
+  <p>上海市區 9 小時／120 公里只要 NT$4,371，<strong>規格比杭州的 8 小時／100 公里好，價格卻更低</strong>。Day 6 實際只需 09:30 到 16:30 共 7 小時、移動約 10 公里——9 小時有兩小時餘裕，120 公里用不到十分之一，甚至還能在外面吃完晚餐再回飯店。<strong>四千三買一整天待命，沒有理由改叫滴滴。</strong></p>
+
+  <h3>Day 2 的風險是時數不是里程</h3>
+  <p>Day 2 全天移動：雷峰塔接回 2.6 公里、回飯店午休、郭莊 3.1 公里、傍晚湖濱——<strong>全天不到 15 公里，100 公里根本用不完</strong>。但 09:30 出發到 17:00 約 7.5 小時，8 小時只剩半小時餘裕。長輩狀況好、傍晚想在湖濱多坐，很容易超時。超一兩小時無所謂（¥50／時），但要先知道。</p>
+  <p><strong>卓伦租车</strong>：杭州卓伦汽车租赁有限公司，統編 91330108MA27WBUN0N，2015 年 11 月成立，註冊資本 500 萬人民幣，法定代表人郦伦，註冊於杭州市濱江區。KKday 商家評分 4.8（1,534 則）、回覆率 99%、4 小時內回覆，明列可客製行程、可代購門票。可到國家企業信用信息公示系統（gsxt.gov.cn）輸入統編查即時狀態，<strong>特別看「經營異常名錄」與「嚴重違法失信名單」兩欄</strong>。</p>
+  <div class="alert"><b>七天要在同一家就直接問客製報價，不要分七筆下單。</b>一起談通常有折扣，更重要的是責任歸屬單一——這是「拼段」最大的風險所在。<br>Day 3 要特別確認兩件事：<strong>10 小時能不能從杭州市區開始算</strong>（不是從出發往蘇州才起算），以及<strong>中途停寒山寺算不算在內</strong>。商品說明寫「接送時間、接送地址客戶自行指定」，理論上沒問題，但白紙黑字問一次。</div>
+  <div class="alert"><b>但別為了省平台抽成私下交易。</b>你會失去 3 天前免費取消、平台付款保障、台灣消保法的申訴管道，以及評價機制對商家的約束力。省一成，換掉整趟唯一的保障層，以你們的組成不划算。訂好後再跟司機要微信作為現場聯絡，那不影響交易保障。</div>
+
+  <h3>驗證步驟</h3>
+  <p>小滿的執照號碼是交觀甲字第 881300 號，可查。到觀光署旅行業查詢系統輸入號碼，確認註冊狀態與履約保證保險。平台則確認付款走平台不落地、以及取消政策的實際條款。<strong>所有款項一律走平台或旅行社，不要私下匯款給地接或司機。</strong></p>
+</section>
+
+<section>
+  <h2>門票與預約</h2>
+  <div class="alert"><b>四個景點都必須提前預約，現場買不到。</b>拙政園、獅子林、蘇州博物館、上海博物館全部是實名制分時預約。<strong>拙政園 2026 年起現場不出售未經預約的門票，沒有例外</strong>，熱門時段常提前數日售罄。這四項沒訂好，Day 4 和 Day 5 的主景點會整個落空。</div>
+
+  <h3>票價</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>項目</th><th>票價</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>拙政園</td><td class="num">¥70</td><td>淡季價（11 月至次年 3 月）。冬季 7:30–17:00，閉園前 30 分鐘停止入場</td></tr>
+      <tr><td>獅子林</td><td class="num">¥30</td><td>淡季價</td></tr>
+      <tr><td>蘇州博物館</td><td class="num">免費</td><td>本館需預約，西館不用（但西館在高新區）</td></tr>
+      <tr><td>上海博物館</td><td class="num">免費</td><td>人民廣場館。見下方，可能免預約</td></tr>
+      <tr><td>雷峰塔</td><td class="num">¥40</td><td>70 周歲以上憑證件半票 ¥20，台胞證可辦優惠</td></tr>
+      <tr><td>西湖風景區</td><td class="num">免費</td><td>遊船另計</td></tr>
+      <tr><td>郭莊</td><td class="num">¥10</td><td></td></tr>
+      <tr><td>寒山寺・楓橋景區</td><td class="num">約 ¥20–30</td><td>長輩優惠現場確認</td></tr>
+      <tr><td>黃浦江遊船</td><td class="num">約 ¥109</td><td>看當天天氣決定</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>台灣人能不能自己預約：查過了，大部分可以</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>項目</th><th>能自己辦嗎</th><th>怎麼辦</th></tr></thead>
+    <tbody>
+      <tr><td>蘇州博物館 11/18</td><td><strong>可以</strong></td><td>微信「蘇州博物館全預約」小程式，台胞證號直接填。提前 7 天早上 8 點放號</td></tr>
+      <tr><td>上海博物館 11/20</td><td><strong>可以</strong></td><td>官網 email 通道，不必用微信。提前 14 天。而且可能免預約</td></tr>
+      <tr><td>拙政園 11/18</td><td>可以</td><td>微信「苏州园林」小程式，需微信支付</td></tr>
+      <tr><td>獅子林 11/19</td><td>可以</td><td>同上</td></tr>
+      <tr><td>70 歲免票</td><td><strong>不確定</strong></td><td>見下方，建議直接買全票</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="font-family:var(--serif);font-size:1.15rem;margin:2rem 0 .3rem">蘇州博物館</h4>
+  <p>台灣人及外國人可憑台胞證及護照預約，透過官方網站、官方微信公眾號或「蘇州博物館全預約」微信小程式。<strong>單一帳號最多實名預約 10 人</strong>，每個人的姓名及有效證件號碼均需填寫，資料不符將無法入館。所以四個人一個帳號就能一次搞定。</p>
+  <p>實際操作：微信搜尋「蘇州博物館全預約」，先把四人資料都輸入好，點選<strong>本館</strong>（西館不需預約），選日期時段，再點擊新增參觀者。</p>
+  <div class="alert"><b>別為了保險多搶時段，也別搶到了不去。</b>連續兩次或在 90 天內累計四次預約未到館，將觸發限制預約機制，之後 90 日內無法預約參觀蘇州博物館。若未在預約時段正負 30 分鐘內到館，視為無效。</div>
+
+  <h4 style="font-family:var(--serif);font-size:1.15rem;margin:2rem 0 .3rem">上海博物館：這一項最輕鬆</h4>
+  <p><strong>人民廣場館自 2025 年 9 月 1 日起試行免預約參觀</strong>（上海市文化和旅遊局公告）。你們要去的正是人民廣場館，東館在浦東不是目標。不過那是「試行」，出發前一週再確認還在不在。</p>
+  <p>就算要預約，也<strong>完全不需要微信</strong>——上海博物館開通了官網英文版境外遊客預約通道，憑有效郵箱註冊登入即可，預約二維碼會寄到註冊信箱，當天持二維碼與實體證件核驗入館。預約開放時間是提前 14 天，比蘇博寬鬆一倍。用 email 就能辦，不必大陸手機號、不必微信支付。</p>
+
+  <h4 style="font-family:var(--serif);font-size:1.15rem;margin:2rem 0 .3rem">70 歲免票：建議放棄，直接買全票</h4>
+  <p>預約系統本身可以自己辦——「苏州园林」小程式接受填護照號碼，台胞證號同類。<strong>但「70 歲免票」能不能用台胞證申請，找不到官方明文。</strong>官方寫的一律是「持《高齡證》或居民身份證」，兩種都是大陸證件；「蘇園旅遊網」雖有「優惠對象預約票」入口，也沒說台胞證適用。</p>
+  <div class="alert"><b>別為了省 ¥200 冒風險。</b>拙政園淡季 70 元、獅子林 30 元，兩位長輩全票也只是 ¥200（約 NT$860）。如果優惠票卡在證件類型、或現場核驗不認，可能連票都沒有。<strong>先確保拿到票，優惠是加分不是目標。</strong>真要試，就在小程式裡先看「優惠對象預約票」能不能填台胞證號，不行立刻轉全票。</div>
+
+  <h3>兩個實用細節</h3>
+  <p><strong>拙政園最佳入場是 7:30 一開門</strong>，可在旅行團抵達前享受約一小時清靜。但那要 7:00 出門，對 72–77 歲偏早——建議選 9:30 那個時段，人多一些但作息正常。</p>
+  <p><strong>拙政園只有一個入口但有兩個出口。</strong>下一站是平江路走東出口，下一站是蘇州博物館或獅子林走南出口。Day 4 是拙政園接蘇州博物館，所以走<strong>南出口</strong>。</p>
+
+  <h3>對包車議價的影響</h3>
+  <p>「能否代辦門票實名預約」原本是關鍵條件，<strong>現在降級成加分項</strong>——四項你自己都辦得到，只要先把微信支付綁好境外卡。這在議價上是你的籌碼，少一個非它不可的理由。</p>
+</section>
+
+<section>
+  <h2>行前準備</h2>
+  <ul class="check">
+    <li><b>台胞證效期</b><span>五年效期。如果好幾年沒去大陸很可能已過期，辦新證要時間，這是最容易卡住行程的一環，現在就查。</span></li>
+    <li><b>旅遊平安險</b><span>70 歲以上保額普遍縮減，75 歲以上部分業者只能透過保險經紀投保，流程比訂機票慢。務必確認保單含「緊急醫療轉送」。健康告知要誠實填寫，隱瞞既往病史被查到整份保單可能被撤銷。<strong>信用卡附贈的旅遊險 70 歲以上常不承保</strong>，不能拿來替代。</span></li>
+    <li><b>機場輪椅協助</b><span>訂機票時就登記，兩岸線不收費，去回兩段一次登記。不是因為走不動——浦東和蕭山航廈都大，從登機門走到出關動輒十幾分鐘，還能走優先通道。</span></li>
+    <li><b>赴陸行前登錄</b><span>到「國人赴陸港澳動態登錄系統」登錄四人。完全自願、免費、幾分鐘。用途是遇到緊急狀況時政府能掌握行程並提供協助。</span></li>
+    <li><b>常備藥</b><span>慢性處方藥帶足全程加三到五天備量，放隨身行李不要託運，請醫師開一份中文藥名清單備用。</span></li>
+    <li><b>折疊輪椅</b><span>建議在蘇州或上海租，按天計費，不必從台灣帶。主要用途是下午三點以後當保險，不是全程代步。園林多可推輪椅入園，但石板路顛、推起來費力。</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>網路與通訊</h2>
+  <p class="lead">這一站的需求跟一般旅遊不同：其中一位需要在大陸維持不受限制的工作用網路。好消息是這件事有正規做法，不需要用到任何規避手段。</p>
+
+  <h3>為什麼漫遊不算翻牆</h3>
+  <p>開通國際漫遊後，<strong>所有數據流量會先回傳到台灣的伺服器</strong>，因此可以像在台灣一樣使用 Google、Facebook、Instagram、YouTube 等境外服務，不受大陸網路管制影響。</p>
+  <p>「免翻牆 eSIM」原理類似——中國移動（香港）或中國聯通（香港）的機房伺服器位在香港，而香港不在大陸的網路管制範圍內，所以透過它們漫遊時 LINE、FB、IG 都能直接使用。</p>
+  <div class="alert"><b>兩者走的都是正規電信路徑，不是 VPN。</b>中國對未經許可的 VPN 服務有管制，但境外漫遊和中港卡不涉及這個問題。工作用途尤其該走這條路，不要為了省錢去用來路不明的工具。</div>
+
+  <h3>建議的配置：一人漫遊、三人 eSIM</h3>
+  <div class="opts">
+    <div class="opt pick">
+      <h5>工作需求那位　中華電信漫遊<span class="pickmark">穩定優先</span></h5>
+      <p class="dist">七天約 NT$1,500–2,500，實際費率待查</p>
+      <p><strong>原門號能收簡訊。</strong>工作的二階段驗證、銀行 OTP、公司系統驗證碼都綁在門號上。用 eSIM 雖然可以雙開保留原卡待機，但多一層設定就多一個出錯點。</p>
+      <p><strong>出問題有台灣客服可以打。</strong>人在蘇州、公司在等回覆、網路斷了——這時候要的是能打中文客服的對象，不是電商平台的客服信箱。</p>
+      <p class="cav">要注意：中國大陸的實際費率請在中華電信 App 或網路門市查「中國大陸」方案表，或打客服確認。可提前 30 天預約生效，但別拖到出發當天辦。</p>
+    </div>
+    <div class="opt">
+      <h5>其他三位　免翻牆 eSIM</h5>
+      <p class="dist">三人合計約 NT$1,000</p>
+      <p>需求單純——拍照、傳 LINE、查地圖。買標示「免翻牆」的方案就能正常使用境外 App，成本只有漫遊的幾分之一。</p>
+      <p class="cav">要注意：見下方的 IP 陷阱。</p>
+    </div>
+  </div>
+
+  <h3>別買「台商一路發」</h3>
+  <p>中華電信有台商一路發月租型，每月固定 1,688 元、涵蓋中港澳，那是設計給經常往返的商務人士的。<strong>七天單趟不划算</strong>，除非本來就常跑大陸。七天應該用定量型或日租型。</p>
+
+  <h3>eSIM 的 IP 陷阱</h3>
+  <div class="alert"><b>帶「漫遊 IP」標示的 eSIM，在 Android 裝置上可能無法使用支付寶、抖音、高德地圖、美團等 App</b>——因為這些 App 偵測到非大陸 IP 就拒絕服務。iOS 裝置通常較少出現這個問題。<br>這跟前面「綁支付寶或微信支付」的準備直接衝突，購買前務必確認產品寫的是本地 IP 還是漫遊 IP，以及自己的手機系統。<br>好消息是導航和訂位都是包車司機的事，高德和美團應該用不到。</div>
+
+  <h3>三個實務提醒</h3>
+  <ul>
+    <li><strong>不要在當地插本地 SIM 卡。</strong>有旅客回報在大陸換過當地 SIM 卡後，即使換回漫遊或中港卡，仍然無法使用 LINE、FB。這是網友經驗、沒有官方證實，但既然要的是不受限制，就別去踩。</li>
+    <li><strong>出發前在台灣先測試。</strong>如果工作需要連公司 VPN 或內網，先在台灣確認漫遊環境下連得上。到現場才發現連不進去就沒得補救。</li>
+    <li><strong>備援不是多餘的。</strong>工作不能斷，就該有第二條路。一張便宜的免翻牆 eSIM 放著，主網路出狀況時切過去，買的是「不會整天失聯」。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>預估總預算</h2>
+  <p class="lead">機票與包車已是實價，飯店仍為估算。匯率 1 CNY ≈ 4.3 TWD、1 USD ≈ 31.5 TWD，請自行確認。以下採<strong>機票方案 B</strong>（去程長榮、回程中國南方）。</p>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>項目</th><th class="num">精簡</th><th class="num">建議</th><th class="num">舒適</th></tr></thead>
+    <tbody>
+      <tr><td>飯店　6 晚 × 2 房</td><td class="num">¥6,240</td><td class="num">¥8,000</td><td class="num">¥13,200</td></tr>
+      <tr><td>包車七天　<strong>卓伦實價</strong></td><td class="num">¥2,550<br><span class="pending">改高鐵＋叫車</span></td><td class="num"><strong>¥6,900</strong></td><td class="num"><strong>¥6,900</strong></td></tr>
+      <tr><td>門票</td><td class="num">¥740</td><td class="num">¥1,040</td><td class="num">¥1,190</td></tr>
+      <tr><td>餐食　11 頓</td><td class="num">¥4,000</td><td class="num">¥5,500</td><td class="num">¥7,000</td></tr>
+      <tr><td><strong>人民幣小計</strong></td><td class="num"><strong>¥13,530</strong></td><td class="num"><strong>¥21,440</strong></td><td class="num"><strong>¥28,290</strong></td></tr>
+      <tr><td>　　折合台幣</td><td class="num">NT$58,179</td><td class="num">NT$92,192</td><td class="num">NT$121,647</td></tr>
+      <tr><td>機票　<strong>方案 B 實價</strong></td><td class="num">NT$50,332</td><td class="num">NT$50,332</td><td class="num">NT$50,332</td></tr>
+      <tr><td>旅遊平安險</td><td class="num">NT$6,000</td><td class="num">NT$8,000</td><td class="num">NT$12,000</td></tr>
+      <tr><td>台中↔桃園接駁</td><td class="num">NT$2,400</td><td class="num">NT$3,000</td><td class="num">NT$3,000</td></tr>
+      <tr><td>網路　工作那位漫遊</td><td class="num">NT$1,500</td><td class="num">NT$2,000</td><td class="num">NT$2,500</td></tr>
+      <tr><td>網路　其他三位 eSIM</td><td class="num">NT$1,000</td><td class="num">NT$1,000</td><td class="num">NT$1,000</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>四人合計</td><td class="num">NT$119,411</td><td class="num">NT$156,524</td><td class="num">NT$190,479</td></tr>
+      <tr><td>每人</td><td class="num">NT$29,853</td><td class="num">NT$39,131</td><td class="num">NT$47,620</td></tr>
+    </tfoot>
+  </table>
+  </div>
+
+  <h3>若回程改搭長榮（方案 A）</h3>
+  <p>機票四人由 NT$50,332 增為 NT$59,284，三檔總額各加 NT$8,952：精簡 NT$128,363、<strong>建議 NT$165,476</strong>、舒適 NT$199,431；每人分別為 NT$32,091、<strong>NT$41,369</strong>、NT$49,858。</p>
+
+  <h3>包車已從估算變實數</h3>
+  <p>原先以 Trip.com 的 ¥9,000 估，卓伦七天總價實報 <strong>¥6,900</strong>（約 NT$29,670），<strong>低了 ¥2,100（約 NT$9,030）</strong>。含接送機兩趟、跨城兩日各 10 小時、市區三日各 8 小時，超時人民幣 50／小時，<strong>按行程進行、不計超公里費用</strong>。</p>
+  <p>七筆分開下單是 NT$30,801，併成七天總價省約 NT$1,131——但併單真正的價值不在價格，<strong>在於一筆訂單、一個窗口、一份責任</strong>。</p>
+
+  <h3>三種情境的差別在哪</h3>
+  <ul>
+    <li><strong>精簡</strong>　全季級飯店約 ¥520 一房一晚，交通改成高鐵加市內叫車（不含包車）。</li>
+    <li><strong>建議</strong>　仁和・平江府・外灘智選假日，約 ¥670 一房一晚，卓伦七天包車。</li>
+    <li><strong>舒適</strong>　Canopy・平江府・外灘茂悅，約 ¥1,100 一房一晚，卓伦七天包車。</li>
+  </ul>
+
+  <h3>最大的一個變數是交通</h3>
+  <p>包車約 ¥9,000，高鐵加市內叫車約 ¥2,550——差 <strong>¥6,450，折合台幣約 2 萬 8</strong>。這是整份預算裡單筆差距最大的決定。</p>
+  <p>高鐵便宜，但杭州到蘇州、蘇州到上海這兩段要自己拖行李進出站、找月台、換乘，還有兩趟機場接送。以四人加行李加可能的輪椅，加上兩位長輩，我仍然傾向包車——但這 2 萬 8 值不值得，是你們四個人一起決定的事。</p>
+
+  <h3>跟原本那份報價比</h3>
+  <p>原 Trip.com 報價是 ¥20,485，含飯店、門票、當地交通、服務費，不含機票和餐食。用同樣範圍比：</p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>情境</th><th class="num">飯店＋門票＋交通</th><th class="num">與原方案差額</th></tr></thead>
+    <tbody>
+      <tr><td>精簡</td><td class="num">¥9,530</td><td class="num">−¥10,955</td></tr>
+      <tr><td>建議</td><td class="num">¥18,040</td><td class="num">−¥2,445</td></tr>
+      <tr><td>舒適</td><td class="num">¥24,390</td><td class="num">＋¥3,905</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>「建議」這一檔比原方案<strong>便宜約 ¥2,400，而且飯店位置更好、沒有買不會去的票、多了兩間室內館當雨天備案</strong>。省下來的錢主要來自兩處：刪掉東方明珠、虎丘、宋城、豫園那四張紙上門票（約 ¥2,750），以及兩位長輩的蘇州園林免票。</p>
+
+  <h3>沒算進去的</h3>
+  <ul>
+    <li>伴手禮與購物——這完全看個人，沒辦法代估</li>
+    <li>台胞證辦理或換發費用，如果需要重辦，一人約 NT$1,600</li>
+    <li>超重行李費</li>
+    <li>中華電信中國大陸費率尚未查到明確數字，漫遊那筆是依同類方案估的區間</li>
+    <li>司機或導遊的感謝金——包車報價通常已含服務，中國也沒有強制小費文化，但備一點紅包不吃虧</li>
+  </ul>
+  <p class="pending">飯店房價是依同級距行情估的區間中位數，不是實際報價；包車以原方案的 ¥9,000 為基準。這兩項詢價回來後，整份預算就能收斂成實數。</p>
+</section>
+
+<section class="todo">
+  <h2>待辦與待確認</h2>
+  <p class="lead">按時間排，不是按類別——有幾件事有硬性時間點，錯過就補不回來。可以直接印出來勾。</p>
+
+  <h3>現在就做<span class="when">不做會卡住整趟</span></h3>
+  <ul class="check">
+      <li><b>查四人台胞證效期</b><span>五年效期。長輩如果好幾年沒去大陸很可能已過期，重辦要時間。這是最容易讓整趟行程作廢的一項，先查這個。</span></li>
+      <li><b>✔ 機票已開票（9/24）</b><span>中國國際航空 CA150／CA195，訂位代號（不公開），四人 NT$47,872。<strong>不可退票</strong>，改期 NT$1,500／人＋服務費 NT$500／人。</span></li>
+      <li><b>打電話登記輪椅協助與預選座位</b><span>中國國際航空桃園客服 00800-86-100-999，報 ——，兩位長輩去回兩段一次登記，至少提前 48 小時。順便劃位——行程單上四人座位都還是空的。</span></li>
+      <li><b>下卓伦接機訂單並通知更新時間</b><span>航班編號已有，卡住的那一步解開了。先啟動 ShopBack，行程備註貼進聊天框，注意寫明<strong>蕭山 T4</strong>。舊訂單 #26KK260744853 等新單成立後再取消。</span></li>
+      <li><b>量一次兩個 28 吋箱的三邊總和</b><span>含腳輪和把手不得超過 158 公分，超過就要付超額行李費。同時確認票種含幾件託運行李（部分經濟艙票種只含一件），並注意單件不超過 23 公斤。20 吋那件考慮手提上機（上限 7 公斤），託運就只剩三件。</span></li>
+      <li><b>訂票時同步登記輪椅協助</b><span>兩位長輩都申請，代碼 WCHR。去回兩段一次登記，兩岸線不收費。不是因為走不動，是浦東和蕭山航廈的步行距離太長。</span></li>
+      <li><b>查中華電信「中國大陸」漫遊費率並申請</b><span>在中華電信 App 或網路門市查定量型與日租型費率，別選台商一路發月租型（1,688 元／月，七天單趟不划算）。可提前 30 天預約生效，別拖到出發當天。其他三位買免翻牆 eSIM 即可。</span></li>
+      <li><b>旅平險（現在最急）</b><span><strong>機票不可退，行程取消保障是唯一退路。</strong>要業務照四人實際年齡重報，並問清楚：涵蓋哪些取消原因、既往病史是否除外、77 歲那位的保額上限。務必確認含「緊急醫療轉送」。</span></li>
+      <li><b>（原）開始詢問旅遊平安險</b><span>72 歲和 77 歲落在不同級距，77 歲可能只能透過保險經紀投保，流程比訂機票慢得多。務必確認保單含「緊急醫療轉送」。信用卡附贈的旅遊險 70 歲以上常不承保，不能拿來替代。</span></li>
+  </ul>
+
+  <h3>四個景點的預約<span class="when">現場買不到，沒訂就落空</span></h3>
+  <div class="alert"><b>11/11 早上 8 點：搶蘇州博物館 11/18。</b>提前七天放號，經常幾秒就沒（中國與台灣同時區）。微信「蘇州博物館全預約」小程式，事先把四人證件資料輸入好再等時間。台胞證號可直接填，一個帳號可預約 10 人。<br><strong>別多搶時段當保險</strong>——90 天內累計四次未到館會被限制預約 90 日。</div>
+  <div class="alert"><b>拙政園 11/18、獅子林 11/19 也必須預約。</b>這兩項我先前漏了。拙政園 2026 年起現場不出售未經預約的門票，沒有例外，熱門時段常提前數日售罄。微信「苏州园林」小程式，需先綁好微信支付的境外卡。<strong>建議選 9:30 時段</strong>——7:30 開門人最少，但長輩要 7:00 出門。<br>70 歲免票能不能用台胞證申請沒有官方明文，<strong>建議直接買全票，兩人共 ¥200，別為省這筆冒沒票的風險。</strong></div>
+  <div class="alert"><b>上海博物館 11/20 最輕鬆。</b>人民廣場館自 2025/9/1 起試行免預約（出發前確認還在不在）。要預約就用官網 email 通道，不必微信，提前 14 天開放。</div>
+
+  <h3>兩週內要決定<span class="when">定了才能往下訂</span></h3>
+  <ul class="check">
+      <li><b>日期：11/15–11/21，還是 11/11–11/17</b><span>機票同價。11/15 那組所有景點日都在平日；11/11 那組蘇州兩座園林會撞週末。</span></li>
+      <li><b>訂全季觀前街時要求無菸樓層</b><span>蘇州飯店已定案。有旅客反映房間有煙味，這是它唯一的已知風險，訂房時明確寫進備註。</span></li>
+      <li><b>上海：再找兩間人民廣場的候選</b><span>區域已定案，但先前三間裡只有 JW 萬豪明天廣場在人民廣場（五星、房價可能偏高）。需要同區不同價位的選項來比。</span></li>
+      <li><b>包車，還是高鐵加市內叫車</b><span>高鐵便宜，但要自己拖行李、換乘。以四人加行李加可能的輪椅，我傾向包車，這是錢與體力的取捨。</span></li>
+      <li><b>要不要加回豫園</b><span>放 Day 6 上午，離外灘約 1.5 公里。上海最有代表性的江南園林，但人非常多。目前的上海部分確實偏薄。</span></li>
+      <li><b>要不要租折疊輪椅</b><span>蘇州或上海按天租，不必從台灣帶。租了不一定要用，但需要時沒有就麻煩。</span></li>
+  </ul>
+
+  <h3>訂房時要問清楚<span class="when">要書面回覆，不要只看照片</span></h3>
+  <ul class="check">
+      <li><b>浴室是否乾濕分離、有無防滑地面或扶手、有無淋浴椅</b><span>長輩出遊最常出事的地方就是飯店浴室，這比房型大小重要得多。</span></li>
+      <li><b>是否可指定低樓層、電梯是否直達客房層</b></li>
+      <li><b>是否含早餐</b><span>四人兩房、六個早上。外出找早餐對長輩不划算，訂含早的房型。</span></li>
+      <li><b>蘇州平江府：有沒有電梯、能否要較大房型</b><span>旅客反映房間偏小、採光一般。</span></li>
+      <li><b>耨嵐精品酒店：先確認電梯</b><span>只有 28 間房的改建旅館，很可能沒電梯。問不到答案就直接排除。</span></li>
+  </ul>
+
+  <h3>包車詢價單上要寫明<span class="when">比至少三家</span></h3>
+  <ul class="check">
+      <li><b>先查旅行業註冊</b><span>觀光署有旅行業查詢系統，可查註冊編號與履約保證保險。名字掛「旅行社」不代表有註冊，五分鐘的事。</span></li>
+      <li><b>四段跨城與機場接送是否全含</b><span>蕭山機場→杭州、杭州→蘇州、蘇州→上海、上海→浦東機場。</span></li>
+      <li><b>三個跨城日單獨報價，不套用 100 公里基準</b><span>業界常見是每天 10 小時／100 公里，超時每小時 30 至 80 元、超公里每公里 3 至 5 元。跨城日一定爆表。</span></li>
+      <li><b>超時與超公里的費率上限</b></li>
+      <li><b>高速過路費、停車費、司機食宿由誰負擔</b></li>
+      <li><b>一天可能需要多跑一趟送回飯店</b><span>彈性分組完全靠這個。不寫進報價單，出發後司機說不含就很難吵。</span></li>
+      <li><b>要求回覆具體車款</b><span>7 人座商務車即可——規格是可坐 6 人、放 4 件 26-28 吋行李箱，行李在範圍內，不需升級 9 人座。但要具體車款，不要接受籠統的「商務車」。</span></li>
+      <li><b>能否代辦景點實名門票預約</b><span>直接解掉台胞證登錄系統的不確定性。</span></li>
+      <li><b>協助完成赴陸行前登錄</b><span>9 月起這是旅行業的法定義務。如果業者說「不用登錄啦」，那是它自己在違規，也是判斷是否正規的訊號。</span></li>
+      <li><b>旅行業責任險投保證明</b></li>
+  </ul>
+
+  <h3>出發前一個月<span class="when">十月中</span></h3>
+  <ul class="check">
+      <li><b>上海博物館 11/20 預約</b><span>免費但需預約。</span></li>
+      <li><b>蘇州園林 70 歲以上優惠票線上實名預約</b><span>符合免費優惠的也要預約「優惠對象預約票」。線上系統要填身分證號，台胞證能否登錄有不確定性，建議請包車業者或飯店用微信代辦。</span></li>
+      <li><b>再加一家平台詢價，湊滿三個比較點</b><span>小滿已在詢價中，Trip.com 的 ¥9,000 可當基準，只差一家 KKday 或 Klook。走客製詢價入口，不要下訂單日產品拼湊。</span></li>
+      <li><b>四人到「國人赴陸港澳動態登錄系統」登錄</b><span>完全自願、免費、幾分鐘。用途是遇到緊急狀況時政府能掌握行程並提供協助。</span></li>
+      <li><b>綁好支付寶或微信支付的境外卡</b><span>多數店家以行動支付為主。另外換少量人民幣現金，長輩身上放幾百元備用。</span></li>
+      <li><b>回頭看一次赴陸安全動態</b><span>中國新的出入境管理規定 9 月 15 日上路，到出發前有兩個月的實務案例可觀察。看陸委會週報的增幅和機場審查是否趨嚴的報導。這時機票還在可調整階段，決策成本最低。</span></li>
+      <li><b>確認四人裡有沒有現職或退、離職公務員身分</b><span>陸委會統計中被留置盤查的案件，具公職身分者比例約半數，點名範圍包含檢察官、法官、移民署人員、警察及軍人。如果有，值得先評估。</span></li>
+  </ul>
+
+  <h3>出發前一週<span class="when">最後檢查</span></h3>
+  <ul class="check">
+      <li><b>慢性處方藥</b><span>備足全程加三到五天，放隨身行李不要託運，請醫師開一份中文藥名清單。</span></li>
+      <li><b>再確認餐廳地址與營業時間</b><span>老店搬遷或整修的情況不少，尤其上海姥姥近期搬過位置。</span></li>
+      <li><b>再確認博物館開放時間與預約規則</b><span>公立館舍幾乎都週一閉館。Day 2（11/16）是週一，那天在杭州沒有博物館可當雨天備案。</span></li>
+      <li><b>確認航班時間沒變動</b></li>
+      <li><b>在台灣測試漫遊環境下能否連公司 VPN 或內網</b><span>到現場才發現連不進去就沒得補救。同時確認購買的 eSIM 是本地 IP 還是漫遊 IP，Android 用漫遊 IP 可能無法使用支付寶。</span></li>
+      <li><b>雨具改用連帽雨衣或雨披</b><span>不要撐傘走路。撐傘佔一隻手又遮視線，長輩雨天的頭號風險是跌倒不是感冒。另外帶防滑底的鞋。</span></li>
+  </ul>
+</section>
+
+<footer>
+  <p class="ver">版本 v25・公開版　最後更新 2026 年 9 月 24 日</p>
+  <p style="margin-top:1rem">行程草案，尚未訂任何項目。機票時間與票價為查詢當時的即時資料，開票前需再確認；門票價格與開放時間以景區公告為準。</p>
+  <p><strong>這份文件還在編修中。</strong>看到的內容以上面的版本日期為準——如果你手上的討論筆記對不上，先確認是不是看的是舊版，重新整理頁面就會拿到最新的。</p>
+  <h3 style="font-family:var(--serif);font-size:1.05rem;margin:1.8rem 0 .3rem;color:var(--ink)">更新紀錄</h3>
+  <ul class="changelog">
+    <li><strong>v25　9/24</strong>　<strong>每日行程改為完整時刻表</strong>：早餐、午餐、晚餐、宵夜全部排入並標明時間與距離，移動時間對齊用車時數，每天附上用車起訖與餘裕。宵夜一律標為選配。</li>
+    <li><strong>v24　9/24</strong>　補上仁和飯店周邊細節：<strong>百年老店知味觀（仁和路 83 號）距飯店僅 61 公尺</strong>、每天 09:00–22:00，排為 Day 1 晚餐；西湖東岸 5 分鐘、湖濱碼頭就在這一帶，Day 2 上午不必趕車。</li>
+    <li><strong>v23　9/24</strong>　住宿章節新增<strong>訂房速查表</strong>（三城首選與備案、地址、電話、入退房日期）、<strong>訂房平台建議</strong>（Trip.com 可篩選可接待港澳台旅客）、涉外資格政策現況與精準問法，以及三間各自要多問的一項。<strong>上海首選改為 Radisson Blu 新世界</strong>（4.4／1,007 則，樣本最紮實）。</li>
+    <li><strong>v22　9/24</strong>　<strong>機票已開票。</strong>訂位代號（不公開）、四人機票號碼、訂單編號 （不公開） 全數補入。去程降落蕭山<strong>第四航廈 T4</strong>。退改條款確認：不可退票、改期 NT$1,500／人＋易遊網服務費 NT$500／人。旅平險的行程取消保障升為最急待辦。</li>
+    <li><strong>v21　9/19</strong>　<strong>機票定案中國國際航空</strong>（CA150 去、CA195 回，四人 NT$47,880），比長榮省 NT$5,776 且改期便宜一半。Day 1 因 14:20 落地改寫——15:30 進飯店，新增<strong>湖濱步行街散步與西湖音樂噴泉</strong>（每晚 19:30、免費、15 分鐘）。Day 7 出發時間改為 08:30。新增機場輪椅服務說明。</li>
+    <li><strong>v20　9/18</strong>　<strong>蘇州飯店定案：全季觀前街。</strong>包車確認後判斷反轉——有車的話到拙政園只差三分鐘，但晚餐時司機已收工，兩頓晚餐走出門 3 分鐘 vs 每晚叫兩趟車，這個差別車子補不了。附半園的文物資料與放棄它的代價。</li>
+    <li><strong>v19　9/18</strong>　<strong>上海飯店區域定案：人民廣場一帶。</strong>Day 6 午休改為步行、三間博物館全在五分鐘內，那天完全不怕下雨。待辦更新：上海只剩 JW 萬豪一間候選，需再找兩間同區不同價位的。</li>
+    <li><strong>v18　9/18</strong>　包車條件全部確認：<strong>午休接送含在包車時間內、計時從上車起算（非司機出車）、接機免費等候 90 分鐘且從航班實際落地起算</strong>。機票行李額度查證：去程長榮 BR758、回程南航 CZ3095 <strong>皆含 1 件免費託運行李</strong>，四人四件剛好，方案 B 成立。</li>
+    <li><strong>v17　9/16</strong>　機票重查：<strong>去程長榮漲 9% 至 NT$8,505</strong>，回程長榮持平但<strong>中國南方 14:35 直達只要 NT$4,078、四人省 NT$8,952</strong>，新增機票方案 A／B 對照。包車由估算改為<strong>卓伦實報 ¥6,900</strong>（按行程進行、不計超公里）。預算全面重算：建議檔四人 NT$156,524、每人 NT$39,131。</li>
+    <li><strong>v16　9/10</strong>　<strong>決定採用卓伦，小滿不列入考慮</strong>（價差 2.21 倍已超出議價範圍），其報價保留為條款參考，尤其是高齡保險額度的揭露。新增「下單前要問清楚的三件事」。不再找第三家比價。</li>
+    <li><strong>v15　9/10</strong>　補上蘇州市區一日包車 NT$5,017（8 小時，里程未載明——下訂前要問）。<strong>七天七筆全部為實價，合計 NT$30,801，對小滿 NT$68,190 為 2.21 倍。</strong></li>
+    <li><strong>v14　9/10</strong>　補上蕭山接機實價 NT$1,127——<strong>免費等候 90 分鐘、司機依航班動態服務、舉牌接機免費</strong>，先前的接機等候疑慮解除。七天全包約 NT$30,500，對小滿 NT$68,190 為 2.24 倍。新增條款逐項對照表。注意接機須填航班編號才能下訂。</li>
+    <li><strong>v13　9/10</strong>　補上浦東送機實價 NT$939（同一家卓伦提供，免費等候 30 分）。七天全包更新為約 NT$30,300，對小滿 NT$68,190 約 2.25 倍。新增 Day 1 接機的等候條款警示——送機與接機的等候風險完全不同。</li>
+    <li><strong>v12　9/10</strong>　補上上海市區一日包車實價 NT$4,371（9 小時／120 公里）——規格比杭州好、價格更低，是最划算的一天。七天全包更新為約 NT$33,700，對小滿 NT$68,190。</li>
+    <li><strong>v11　9/10</strong>　補上杭州市區一日包車實價 NT$5,017（8 小時／100 公里，超時 ¥50、超里程 ¥5）。<strong>七天全包估約 NT$34,600，對小滿 NT$68,190，剛好兩倍。</strong>市區日只要五千，所以修正先前判斷：不必為省錢放棄 Day 4 與 Day 6 的車。計價條款終於有市場基準可對照小滿的兩個空白。</li>
+    <li><strong>v10　9/10</strong>　包車章節新增三方比價表。KKday 卓伦租车兩個跨城日實價：Day 3 NT$7,376、Day 5 NT$6,954，<strong>比小滿反推值低 2.5 倍</strong>；七天純車估約 NT$37,900 對小滿 NT$68,190。附卓伦的工商登記查證結果。</li>
+    <li><strong>v9　9/10</strong>　車型問題解決：7 人座規格為可坐 6 人、放 4 件 26-28 吋行李箱，行李在範圍內，<strong>不需升級 9 人座</strong>。輪椅暫不納入，預算相應下修。</li>
+    <li><strong>v8　9/10</strong>　查證台灣人能否自行預約，門票章節整段改寫。<strong>補上先前漏掉的拙政園與獅子林預約</strong>（現場買不到）。蘇州博物館與上海博物館確認可自己辦，上博人民廣場館甚至試行免預約。70 歲免票改為建議放棄、直接買全票。</li>
+    <li><strong>v7　9/10</strong>　每日行程末新增「已評估過但決定不排」對照表，含各項理由，供旅伴討論時參考。宋城千古情經查證後仍決定不加。</li>
+    <li><strong>v6　9/10</strong>　包車章節新增：西湖景區交通管制與落客點必問項、三種比價管道對照表（台灣旅行社／台灣平台／大陸平台）、不推薦的三條路、驗證步驟。</li>
+    <li><strong>v5　9/10</strong>　行李更新為 28 吋 ×2、26 吋 ×1、20 吋 ×1 加折疊輪椅。新增建議：20 吋改手提上機，託運就只剩三件、回程有餘裕。</li>
+    <li><strong>v4　9/10</strong>　行李確定為 28 吋 ×3、26 吋 ×1 加折疊輪椅。機票章節新增行李額度三項提醒（158 公分尺寸上限含腳輪把手、票種件數、單件 23 公斤）。包車第三排收摺改列為硬條件。</li>
+    <li><strong>v3　9/10</strong>　行李確定為 4 個 26–28 吋大箱加折疊輪椅。包車條件改為要求「第三排可收摺放行李」並回覆具體車款；門票代辦項目補上具體清單。</li>
+    <li><strong>v2　9/10</strong>　補進三個景點：<strong>雷峰塔</strong>（Day 2，搭遊船直接在塔下下船，塔內電梯直達頂層）、<strong>斷橋・白堤</strong>（Day 3 上午串進北山街）、<strong>寒山寺</strong>（Day 3 下午，從杭州來的方向順路）。雷峰塔同時補上 Day 2 週一沒有室內備案的缺口，但 Day 3 變成最滿的一天。門票與總預算同步上調。</li>
+    <li><strong>v1　9/8</strong>　建立初版：七日行程與雨天備案、三餐與餐廳步行地圖、九間候選飯店、包車詢價條件、網路與通訊、三情境預算、36 項待辦</li>
+  </ul>
+  <button class="btn" onclick="window.print()">列印或存成 PDF</button>
+</footer>
+
+</div>
+</body>
+</html>
