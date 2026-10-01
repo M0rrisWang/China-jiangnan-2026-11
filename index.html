@@ -253,6 +253,33 @@
     .rd{border-color:#999}
     a{color:inherit;text-decoration:none}
   }
+
+/* ===== 每日路線動圖 ===== */
+.rt-wrap{margin:0 0 1.6rem;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--paper-2)}
+.rt-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;padding:.6rem .8rem;border-bottom:1px solid var(--rule);background:var(--paper)}
+.rt-tabs{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.rt-tab{border:0;background:transparent;padding:.35rem .9rem;font:inherit;font-size:.9rem;cursor:pointer;color:var(--ink-2)}
+.rt-tab.on{background:var(--celadon-deep);color:#fff}
+.rt-play{border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:.35rem 1rem;font:inherit;font-size:.9rem;cursor:pointer;color:var(--ink)}
+.rt-play:hover{background:var(--celadon-wash)}
+.rt-label{font-size:.88rem;color:var(--ink-2);flex:1 1 100%}
+.rt-stage{padding:.4rem}
+.rt-svg{width:100%;height:auto;display:block}
+.rt-line{fill:none;stroke:var(--rule);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.rt-live{fill:none;stroke:var(--celadon-deep);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0 99999}
+.rt-dot{fill:var(--paper);stroke:var(--rule);stroke-width:2}
+.rt-node.on .rt-dot{fill:var(--celadon-deep);stroke:var(--celadon-deep)}
+.rt-num{text-anchor:middle;font-size:14px;font-weight:600;fill:var(--ink-2);font-family:var(--sans)}
+.rt-node.on .rt-num{fill:#fff}
+.rt-name{text-anchor:middle;font-size:14px;fill:var(--ink);font-family:var(--sans)}
+.rt-time{text-anchor:middle;font-size:12px;fill:var(--ink-2);font-family:var(--sans)}
+.rt-ico{text-anchor:middle;font-size:17px}
+.rt-ball{fill:var(--ginkgo);stroke:#fff;stroke-width:2}
+.rt-loading{padding:2.4rem 1rem;text-align:center;color:var(--ink-2);font-size:.95rem}
+.rt-mk{background:var(--celadon-deep);color:#fff;border-radius:50%;text-align:center;line-height:26px;font-size:13px;font-weight:600;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+@media(max-width:640px){.rt-name{font-size:12px}.rt-time{font-size:10px}.rt-label{font-size:.82rem}}
+@media print{.rt-wrap{display:none}}
+
 </style>
 </head>
 <body>
@@ -320,7 +347,7 @@
       <dl class="slot meal"><dt>午餐</dt><dd>機上（CA150 供餐）<span class="why">兩岸短程線通常是簡餐，長輩胃口小可以先在機場買點東西備著</span></dd></dl>
       <dl class="slot"><dt>12:30</dt><dd>桃園 T2 起飛（<strong>CA150</strong>，A321，1 小時 50 分）<span class="why">訂位代號（不公開）</span></dd></dl>
       <dl class="slot"><dt>14:30</dt><dd>蕭山機場<strong>第四航廈（T4）</strong>落地<span class="why">走優先通道、第一個到行李轉盤。舉牌接機，出關就看到</span></dd></dl>
-      <dl class="slot"><dt>15:40</dt><dd>湖濱商圈飯店入住，休息一小時</dd></dl>
+      <dl class="slot"><dt>15:40</dt><dd><strong>仁和飯店</strong>入住（郵電路 86 號），休息一小時</dd></dl>
       <dl class="slot"><dt>16:30</dt><dd>湖濱步行街、西湖東岸散步<span class="why">飯店走出去就是，平路、免費。11 月中天黑約五點，剛好看落日</span></dd></dl>
       <dl class="slot meal"><dt>18:00 晚餐</dt><dd><strong>知味觀</strong>（仁和路 83 號）<span class="why">百年老店，離飯店 61 公尺、走不到 1 分鐘，開到晚上 10 點。推薦蟹粉小籠、豬肉小籠、餛飩湯。二樓才是全服務區，先確認電梯</span></dd></dl>
       <dl class="slot"><dt>19:30</dt><dd><strong>西湖音樂噴泉</strong>（湖濱三公園）<span class="why">每晚 19:30 一場、約 15 分鐘，免費。晚餐後散步過去剛好</span></dd></dl>
@@ -339,7 +366,7 @@
     </div>
     <div class="day-body">
       <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店<span class="why">知味觀 09:00 才開，今天 09:30 出車趕不上</span></dd></dl>
-      <dl class="slot"><dt>09:30</dt><dd>出車 → 湖濱碼頭，搭西湖遊船（約 50 分鐘）<span class="why">飯店走到西湖東岸 5 分鐘，碼頭就在這一帶。只坐船不上島。買票時告知在雷峰塔下船，比環湖一圈便宜</span></dd></dl>
+      <dl class="slot"><dt>09:30</dt><dd><strong>仁和飯店</strong>出車 → 湖濱碼頭，搭西湖遊船（約 50 分鐘）<span class="why">飯店走到西湖東岸 5 分鐘，碼頭就在這一帶。只坐船不上島。買票時告知在雷峰塔下船，比環湖一圈便宜</span></dd></dl>
       <dl class="slot"><dt>10:30</dt><dd><strong>雷峰塔</strong>下船，電梯登頂<span class="why">門口有電扶梯上塔基，塔內電梯直達頂層。全票 40 元，70 歲以上憑證件半票 20 元</span></dd></dl>
       <dl class="slot"><dt>11:30</dt><dd>包車接回湖濱（2.6 公里，約 10 分）</dd></dl>
       <dl class="slot meal"><dt>11:45 午餐</dt><dd><strong>外婆家</strong>（湖濱路 3 號，185 公尺）<span class="why">份量大、價格低。要取號等位——<strong>請司機提前幫取號</strong>，或這個時間進場就不用等</span></dd></dl>
@@ -364,12 +391,12 @@
     </div>
     <div class="day-body">
       <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店<span class="why">今天 08:30 出車，知味觀 09:00 開，來不及</span></dd></dl>
-      <dl class="slot"><dt>08:30</dt><dd>退房，行李上車 → 北山街銀杏道、斷橋・白堤起點<span class="why">全程平路、免費，11 月中秋色正好。離湖濱 1.2 公里，走多少算多少</span></dd></dl>
+      <dl class="slot"><dt>08:30</dt><dd><strong>仁和飯店</strong>退房，行李上車 → 北山街銀杏道、斷橋・白堤起點<span class="why">全程平路、免費，11 月中秋色正好。離湖濱 1.2 公里，走多少算多少</span></dd></dl>
       <dl class="slot"><dt>11:30</dt><dd>回湖濱一帶</dd></dl>
       <dl class="slot meal"><dt>12:00 午餐</dt><dd>湖濱一帶（知味觀已開，或 in77 地下層）<span class="why">吃飽再上車，不要餓著坐兩小時。也可請飯店備點心在車上</span></dd></dl>
       <dl class="slot"><dt>13:00</dt><dd><strong>準時出發前往蘇州</strong>（約 180 公里，2 小時）<span class="why">時間是從寒山寺的關門時間倒推的，這班車不能晚</span></dd></dl>
       <dl class="slot"><dt>15:00</dt><dd><strong>寒山寺</strong>（停留約 1 小時）<span class="why">張繼〈楓橋夜泊〉那座寺，1,400 年歷史。平地、規模不大。在古城西側楓橋路，正好在從杭州過來的方向上</span></dd></dl>
-      <dl class="slot"><dt>16:45</dt><dd>蘇州飯店入住（全季觀前街店，觀前街 57-69 號）</dd></dl>
+      <dl class="slot"><dt>16:45</dt><dd><strong>全季飯店（蘇州觀前街中心飯店）</strong>入住<span class="why">姑蘇區人民路 1331 號，+86-512-68112666。察院場捷運站 90 公尺</span></dd></dl>
       <dl class="slot meal"><dt>18:00 晚餐</dt><dd><strong>松鶴樓</strong>（太監弄 72 號，<strong>39 公尺</strong>）<span class="why">蘇幫菜老字號，走出飯店門就到。菜偏甜，點的時候說「少糖」</span></dd></dl>
       <dl class="slot"><dt>19:30</dt><dd>觀前街散步<span class="why">飯店就在街上，走多遠都行，累了隨時回房</span></dd></dl>
       <dl class="slot meal"><dt>宵夜</dt><dd><span class="pending">選配</span>　觀前街沿街小吃<span class="why">今天車程兩小時加一座寺，是七天裡最滿的一天，建議早點休息</span></dd></dl>
@@ -387,7 +414,7 @@
     </div>
     <div class="day-body">
       <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店，或<strong>黃天源</strong>（觀前街浭泗巷 3 號，<strong>195 公尺</strong>）<span class="why">蘇式糕團老字號，粥和糕團軟、好入口——三個城市裡最適合長輩的一頓早餐。走 3 分鐘，回飯店再出車來得及</span></dd></dl>
-      <dl class="slot"><dt>09:00</dt><dd>出車 → <strong>拙政園</strong>（建議預約 9:30 時段）<span class="why">座椅多、可中途折返。冬季 7:30–17:00，閉園前 30 分鐘停止入場</span></dd></dl>
+      <dl class="slot"><dt>09:00</dt><dd><strong>全季觀前街中心</strong>出車 → <strong>拙政園</strong>（建議預約 9:30 時段）<span class="why">座椅多、可中途折返。冬季 7:30–17:00，閉園前 30 分鐘停止入場</span></dd></dl>
       <dl class="slot"><dt>11:30</dt><dd>走<strong>南出口</strong>，包車接回飯店<span class="why">拙政園一個入口、兩個出口。下一站是蘇州博物館或獅子林走南出口，下一站是平江路走東出口</span></dd></dl>
       <dl class="slot meal"><dt>12:15 午餐</dt><dd><strong>朱鴻興麵館</strong>（宮巷 108 號，<strong>105 公尺</strong>）<span class="why">湯麵為主，熱食暖身，坐下就能吃</span></dd></dl>
       <dl class="slot"><dt>13:00–14:00</dt><dd>回飯店午休</dd></dl>
@@ -411,11 +438,11 @@
     </div>
     <div class="day-body">
       <dl class="slot meal"><dt>07:30 早餐</dt><dd>飯店，或黃天源再來一次</dd></dl>
-      <dl class="slot"><dt>08:30</dt><dd>退房，行李上車 → <strong>獅子林</strong><span class="why">約 1 小時、平地為主，比拙政園輕鬆很多。同樣需要預約</span></dd></dl>
+      <dl class="slot"><dt>08:30</dt><dd><strong>全季觀前街中心</strong>退房，行李上車 → <strong>獅子林</strong><span class="why">約 1 小時、平地為主，比拙政園輕鬆很多。同樣需要預約</span></dd></dl>
       <dl class="slot"><dt>11:00</dt><dd>回觀前街一帶</dd></dl>
       <dl class="slot meal"><dt>11:30 午餐</dt><dd>觀前街（松鶴樓、朱鴻興任選）<span class="why">在蘇州吃完再上車</span></dd></dl>
       <dl class="slot"><dt>13:00</dt><dd>出發前往上海（約 100 公里，1.5 小時）</dd></dl>
-      <dl class="slot"><dt>14:30</dt><dd>上海飯店入住（人民廣場一帶），休息</dd></dl>
+      <dl class="slot"><dt>14:30</dt><dd>上海飯店入住（人民廣場一帶，<span class="pending">待訂</span>），休息</dd></dl>
       <dl class="slot"><dt>16:30</dt><dd><strong>外灘濱江</strong>（離人民廣場 1.7 公里，包車 10 分）<span class="why">只走靠萬國建築那一小段平路，坐著看黃浦江夜景。天黑得早，這個時間剛好</span></dd></dl>
       <dl class="slot meal"><dt>18:30 晚餐</dt><dd><strong>上海姥姥</strong>（九江路 399 號，二樓）<span class="why">家常本幫菜、價格實在，離外灘 770 公尺。<strong>但在二樓、人很多，去前先確認有無電梯</strong>，近期搬過位置要再查</span></dd></dl>
       <dl class="slot"><dt>20:00</dt><dd>包車送回飯店</dd></dl>
@@ -458,7 +485,7 @@
     </div>
     <div class="day-body">
       <dl class="slot meal"><dt>07:00 早餐</dt><dd>飯店，吃飽再出發<span class="why">今天只有機上簡餐，早餐要吃夠</span></dd></dl>
-      <dl class="slot"><dt>08:30</dt><dd>退房，專車前往浦東機場 T2（車程約 1 小時）<span class="why">提前 2 小時 35 分。四件行李全部託運、兩位長輩有輪椅協助走優先通道，這個提前量夠用</span></dd></dl>
+      <dl class="slot"><dt>08:30</dt><dd>上海飯店退房，專車前往浦東機場 T2（車程約 1 小時）<span class="why">提前 2 小時 35 分。四件行李全部託運、兩位長輩有輪椅協助走優先通道，這個提前量夠用</span></dd></dl>
       <dl class="slot"><dt>09:30</dt><dd>抵達浦東 T2，辦理登機</dd></dl>
       <dl class="slot meal"><dt>午餐</dt><dd>機上（<strong>CA195</strong> 供餐）<span class="why">想保險可在浦東航廈買點東西備著</span></dd></dl>
       <dl class="slot"><dt>12:00</dt><dd>浦東 T2 起飛（A330-300，1 小時 55 分）</dd></dl>
@@ -734,8 +761,8 @@
   <table class="tbl">
     <thead><tr><th>城市</th><th>日期</th><th>區域要求</th></tr></thead>
     <tbody>
-      <tr><td>杭州</td><td>11/15–11/17</td><td>湖濱商圈，步行到西湖 5 分鐘以內</td></tr>
-      <tr><td>蘇州</td><td>11/17–11/19</td><td><strong>已定案：全季觀前街</strong>（觀前街 57-69 號）。四家老店全在步行 3 分鐘內</td></tr>
+      <tr><td>杭州</td><td>11/15–11/17</td><td><strong>✔ 已訂：仁和飯店</strong>（郵電路 86 號）。湖濱 in77 走 1 分、西湖東岸 5 分、知味觀 61 公尺</td></tr>
+      <tr><td>蘇州</td><td>11/17–11/19</td><td><strong>✔ 已訂：全季飯店（蘇州觀前街中心飯店）</strong>，人民路 1331 號。餐廳群步行 3–5 分、察院場捷運站 90 公尺</td></tr>
       <tr><td>上海</td><td>11/19–11/21</td><td><strong>已定案：人民廣場一帶</strong>。三間博物館全在步行五分鐘內</td></tr>
     </tbody>
   </table>
@@ -1177,72 +1204,54 @@
 
 <section>
   <h2>預估總預算</h2>
-  <p class="lead">機票與包車已是實價，飯店仍為估算。匯率 1 CNY ≈ 4.3 TWD、1 USD ≈ 31.5 TWD，請自行確認。以下採<strong>機票方案 B</strong>（去程長榮、回程中國南方）。</p>
+  <p class="lead">機票、包車、杭州與蘇州飯店<strong>已是實付金額</strong>，只剩上海飯店未訂。人民幣與台幣並列，換算以 1 CNY ≈ 4.3 TWD 計。</p>
 
+  <h3>已確定的四大項</h3>
   <div class="scroller">
   <table class="tbl">
-    <thead><tr><th>項目</th><th class="num">精簡</th><th class="num">建議</th><th class="num">舒適</th></tr></thead>
+    <thead><tr><th>項目</th><th>狀態</th><th class="num">人民幣</th><th class="num">台幣</th></tr></thead>
     <tbody>
-      <tr><td>飯店　6 晚 × 2 房</td><td class="num">¥6,240</td><td class="num">¥8,000</td><td class="num">¥13,200</td></tr>
-      <tr><td>包車七天　<strong>卓伦實價</strong></td><td class="num">¥2,550<br><span class="pending">改高鐵＋叫車</span></td><td class="num"><strong>¥6,900</strong></td><td class="num"><strong>¥6,900</strong></td></tr>
-      <tr><td>門票</td><td class="num">¥740</td><td class="num">¥1,040</td><td class="num">¥1,190</td></tr>
-      <tr><td>餐食　11 頓</td><td class="num">¥4,000</td><td class="num">¥5,500</td><td class="num">¥7,000</td></tr>
-      <tr><td><strong>人民幣小計</strong></td><td class="num"><strong>¥13,530</strong></td><td class="num"><strong>¥21,440</strong></td><td class="num"><strong>¥28,290</strong></td></tr>
-      <tr><td>　　折合台幣</td><td class="num">NT$58,179</td><td class="num">NT$92,192</td><td class="num">NT$121,647</td></tr>
-      <tr><td>機票　<strong>方案 B 實價</strong></td><td class="num">NT$50,332</td><td class="num">NT$50,332</td><td class="num">NT$50,332</td></tr>
-      <tr><td>旅遊平安險</td><td class="num">NT$6,000</td><td class="num">NT$8,000</td><td class="num">NT$12,000</td></tr>
-      <tr><td>台中↔桃園接駁</td><td class="num">NT$2,400</td><td class="num">NT$3,000</td><td class="num">NT$3,000</td></tr>
-      <tr><td>網路　工作那位漫遊</td><td class="num">NT$1,500</td><td class="num">NT$2,000</td><td class="num">NT$2,500</td></tr>
-      <tr><td>網路　其他三位 eSIM</td><td class="num">NT$1,000</td><td class="num">NT$1,000</td><td class="num">NT$1,000</td></tr>
+      <tr><td>機票　四人來回 CA150／CA195</td><td>✔ 已付</td><td class="num">—</td><td class="num"><strong>NT$47,872</strong></td></tr>
+      <tr><td>包車　卓伦七天</td><td>✔ 已付</td><td class="num"><strong>¥6,900</strong></td><td class="num"><strong>NT$32,807</strong></td></tr>
+      <tr><td>杭州　仁和飯店 2 晚 × 2 房</td><td>✔ 已付</td><td class="num">≈ ¥2,355</td><td class="num"><strong>NT$10,127</strong></td></tr>
+      <tr><td>蘇州　全季觀前街中心 2 晚 × 2 房</td><td>11/12 扣款</td><td class="num">≈ ¥1,702</td><td class="num"><strong>NT$7,320</strong></td></tr>
     </tbody>
-    <tfoot>
-      <tr><td>四人合計</td><td class="num">NT$119,411</td><td class="num">NT$156,524</td><td class="num">NT$190,479</td></tr>
-      <tr><td>每人</td><td class="num">NT$29,853</td><td class="num">NT$39,131</td><td class="num">NT$47,620</td></tr>
-    </tfoot>
+    <tfoot><tr><td colspan="3">小計</td><td class="num"><strong>NT$98,126</strong></td></tr></tfoot>
   </table>
   </div>
+  <div class="alert"><b>包車那筆的匯率要注意。</b>KKday 以 NT$32,807 收 ¥6,900，換算是 <strong>1 CNY = NT$4.754</strong>，比市場匯率 4.3 高出約 10.6%。若按 4.3 應為 NT$29,670，<strong>等於多付約 NT$3,137</strong>。這是平台計價方式，不是額外收費。</div>
 
-  <h3>若回程改搭長榮（方案 A）</h3>
-  <p>機票四人由 NT$50,332 增為 NT$59,284，三檔總額各加 NT$8,952：精簡 NT$128,363、<strong>建議 NT$165,476</strong>、舒適 NT$199,431；每人分別為 NT$32,091、<strong>NT$41,369</strong>、NT$49,858。</p>
-
-  <h3>包車已從估算變實數</h3>
-  <p>原先以 Trip.com 的 ¥9,000 估，卓伦七天總價實報 <strong>¥6,900</strong>（約 NT$29,670），<strong>低了 ¥2,100（約 NT$9,030）</strong>。含接送機兩趟、跨城兩日各 10 小時、市區三日各 8 小時，超時人民幣 50／小時，<strong>按行程進行、不計超公里費用</strong>。</p>
-  <p>七筆分開下單是 NT$30,801，併成七天總價省約 NT$1,131——但併單真正的價值不在價格，<strong>在於一筆訂單、一個窗口、一份責任</strong>。</p>
-
-  <h3>三種情境的差別在哪</h3>
-  <ul>
-    <li><strong>精簡</strong>　全季級飯店約 ¥520 一房一晚，交通改成高鐵加市內叫車（不含包車）。</li>
-    <li><strong>建議</strong>　仁和・平江府・外灘智選假日，約 ¥670 一房一晚，卓伦七天包車。</li>
-    <li><strong>舒適</strong>　Canopy・平江府・外灘茂悅，約 ¥1,100 一房一晚，卓伦七天包車。</li>
-  </ul>
-
-  <h3>最大的一個變數是交通</h3>
-  <p>包車約 ¥9,000，高鐵加市內叫車約 ¥2,550——差 <strong>¥6,450，折合台幣約 2 萬 8</strong>。這是整份預算裡單筆差距最大的決定。</p>
-  <p>高鐵便宜，但杭州到蘇州、蘇州到上海這兩段要自己拖行李進出站、找月台、換乘，還有兩趟機場接送。以四人加行李加可能的輪椅，加上兩位長輩，我仍然傾向包車——但這 2 萬 8 值不值得，是你們四個人一起決定的事。</p>
-
-  <h3>跟原本那份報價比</h3>
-  <p>原 Trip.com 報價是 ¥20,485，含飯店、門票、當地交通、服務費，不含機票和餐食。用同樣範圍比：</p>
+  <h3>尚未確定的項目</h3>
   <div class="scroller">
   <table class="tbl">
-    <thead><tr><th>情境</th><th class="num">飯店＋門票＋交通</th><th class="num">與原方案差額</th></tr></thead>
+    <thead><tr><th>項目</th><th>狀態</th><th class="num">人民幣</th><th class="num">台幣</th></tr></thead>
     <tbody>
-      <tr><td>精簡</td><td class="num">¥9,530</td><td class="num">−¥10,955</td></tr>
-      <tr><td>建議</td><td class="num">¥18,040</td><td class="num">−¥2,445</td></tr>
-      <tr><td>舒適</td><td class="num">¥24,390</td><td class="num">＋¥3,905</td></tr>
+      <tr><td><strong>上海　人民廣場 2 晚 × 2 房</strong></td><td><span class="pending">待訂</span></td><td class="num">¥2,790–4,190</td><td class="num"><strong>NT$12,000–18,000</strong></td></tr>
+      <tr><td>餐食　11 頓</td><td>估算</td><td class="num">¥5,500</td><td class="num">NT$23,650</td></tr>
+      <tr><td>門票</td><td>估算</td><td class="num">¥1,040</td><td class="num">NT$4,472</td></tr>
+      <tr><td>旅遊平安險　四人</td><td>已報價</td><td class="num">≈ ¥996</td><td class="num">NT$4,281</td></tr>
+      <tr><td>台中↔桃園接駁　來回</td><td>估算</td><td class="num">≈ ¥1,395</td><td class="num">NT$6,000</td></tr>
+      <tr><td>網路　漫遊＋eSIM 四人</td><td>估算</td><td class="num">≈ ¥698</td><td class="num">NT$3,000</td></tr>
     </tbody>
   </table>
   </div>
-  <p>「建議」這一檔比原方案<strong>便宜約 ¥2,400，而且飯店位置更好、沒有買不會去的票、多了兩間室內館當雨天備案</strong>。省下來的錢主要來自兩處：刪掉東方明珠、虎丘、宋城、豫園那四張紙上門票（約 ¥2,750），以及兩位長輩的蘇州園林免票。</p>
+
+  <h3>總額：差別只在上海飯店</h3>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>上海飯店</th><th class="num">四人合計</th><th class="num">每人</th><th class="num">每人每天</th></tr></thead>
+    <tbody>
+      <tr><td>NT$12,000（中價位）</td><td class="num">NT$151,529</td><td class="num">NT$37,882</td><td class="num">NT$5,412</td></tr>
+      <tr><td>NT$15,000</td><td class="num"><strong>NT$154,529</strong></td><td class="num"><strong>NT$38,632</strong></td><td class="num">NT$5,519</td></tr>
+      <tr><td>NT$18,000（Radisson Blu 級）</td><td class="num">NT$157,529</td><td class="num">NT$39,382</td><td class="num">NT$5,626</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>整趟落在四人 NT$151,500 到 157,500 之間，每人約 NT$37,900 到 39,400。</strong>含機票、住宿、三餐、七天包車、門票、保險、接駁與網路，每人每天約 NT$5,400 到 5,600。</p>
+  <p>比最初以 Trip.com 報價為基礎的估算（建議檔每人 NT$43,318）<strong>省下每人約 NT$4,000 到 5,400</strong>，而且住宿位置更好、包車條件白紙黑字。</p>
 
   <h3>沒算進去的</h3>
-  <ul>
-    <li>伴手禮與購物——這完全看個人，沒辦法代估</li>
-    <li>台胞證辦理或換發費用，如果需要重辦，一人約 NT$1,600</li>
-    <li>超重行李費</li>
-    <li>中華電信中國大陸費率尚未查到明確數字，漫遊那筆是依同類方案估的區間</li>
-    <li>司機或導遊的感謝金——包車報價通常已含服務，中國也沒有強制小費文化，但備一點紅包不吃虧</li>
-  </ul>
-  <p class="pending">飯店房價是依同級距行情估的區間中位數，不是實際報價；包車以原方案的 ¥9,000 為基準。這兩項詢價回來後，整份預算就能收斂成實數。</p>
+  <p>伴手禮購物、超重行李費、司機小費、中華電信中國漫遊的確切費率、蘇州兩天的早餐（飯店無餐點，外食每人約 ¥20–40）。</p>
 </section>
 
 <section class="todo">
@@ -1317,11 +1326,12 @@
 </section>
 
 <footer>
-  <p class="ver">版本 v30・公開版　最後更新 2026 年 10 月 1 日</p>
+  <p class="ver">版本 v33・公開版　最後更新 2026 年 10 月 1 日</p>
   <p style="margin-top:1rem">行程草案，尚未訂任何項目。機票時間與票價為查詢當時的即時資料，開票前需再確認；門票價格與開放時間以景區公告為準。</p>
   <p><strong>這份文件還在編修中。</strong>看到的內容以上面的版本日期為準——如果你手上的討論筆記對不上，先確認是不是看的是舊版，重新整理頁面就會拿到最新的。</p>
   <h3 style="font-family:var(--serif);font-size:1.05rem;margin:1.8rem 0 .3rem;color:var(--ink)">更新紀錄</h3>
   <ul class="changelog">
+    <li><strong>v33　10/1</strong>　<strong>每日行程新增路線動圖</strong>（Q 版 SVG 示意圖＋地圖版 Leaflet，可切換、可播放）；飯店改用實際已訂名稱；<strong>預算表重建</strong>，人民幣台幣並列，機票／包車／杭州蘇州飯店皆為實付，總額四人 NT$151,500–157,500。</li>
     <li><strong>v30　10/1</strong>　<strong>包車已完成訂購</strong>：卓伦商务旅游，¥6,900。待辦更新為取消舊訂單、確認備註已送出、存當地服務商電話。</li>
     <li><strong>v29　10/1</strong>　<strong>待辦清單整個重整</strong>：移除已完成與作廢項目，新增「已完成」區塊、旅平險四個待問問題（報價四人 NT$4,281），以及出發前一週重新下載機票 PDF（手上 9/24 版的時間是異動前舊值）。</li>
     <li><strong>v28　9/30</strong>　中國國際航空再通知 CA195 異動：<strong>起飛時間由 12:05 提早至 12:00</strong>，抵達仍為 14:00。輪椅等特殊服務不受影響。Day 7 出發時間維持 08:30。</li>
@@ -1357,5 +1367,191 @@
 </footer>
 
 </div>
+<script>
+
+window.JN_ROUTES = {
+ d1:{date:"11/15 日",title:"桃園 → 杭州",
+  s:[["桃園機場 T2",[25.0797,121.2342],"12:30 起飛"],
+     ["蕭山機場 T4",[30.235949,120.438891],"14:30 落地"],
+     ["仁和飯店",[30.252129,120.163555],"15:40 入住"],
+     ["西湖東岸",[30.2527,120.1595],"16:30 散步"],
+     ["知味觀",[30.252678,120.163521],"18:00 晚餐"],
+     ["湖濱三公園",[30.2538,120.1600],"19:30 音樂噴泉"]],
+  m:[["✈️","CA150，飛行 1 小時 50 分"],["🚐","包車接機，約 30 分鐘"],["🚶","走出飯店就是"],["🚶","61 公尺"],["🚶","晚餐後散步過去"]]},
+ d2:{date:"11/16 一",title:"杭州市區",
+  s:[["仁和飯店",[30.252129,120.163555],"09:30 出車"],
+     ["湖濱碼頭",[30.25301,120.165651],"搭遊船"],
+     ["雷峰塔",[30.231568,120.149695],"10:30 電梯登頂"],
+     ["外婆家 湖濱",[30.2520,120.1600],"11:45 午餐"],
+     ["仁和飯店",[30.252129,120.163555],"13:00 午休"],
+     ["郭莊",[30.244316,120.132043],"14:30"],
+     ["湖濱 28",[30.2498,120.1554],"18:30 晚餐"]],
+  m:[["🚐","走到碼頭"],["⛴️","西湖遊船約 50 分，塔下下船"],["🚐","包車接回，2.6 公里"],["🚶","185 公尺"],["🚐","3.1 公里"],["🚐","回湖濱"]]},
+ d3:{date:"11/17 二",title:"杭州 → 蘇州",
+  s:[["仁和飯店",[30.252129,120.163555],"08:30 退房"],
+     ["斷橋・白堤",[30.259257,120.151966],"上午散步"],
+     ["湖濱",[30.2525,120.1625],"12:00 午餐"],
+     ["寒山寺",[31.309927,120.569072],"15:00 停留 1 小時"],
+     ["全季觀前街中心",[31.310687,120.62945],"16:45 入住"],
+     ["松鶴樓",[31.311107,120.625206],"18:00 晚餐"]],
+  m:[["🚐","1.2 公里"],["🚐","回湖濱用餐"],["🚐","13:00 出發，180 公里約 2 小時"],["🚐","蘇州古城，約 30 分鐘"],["🚶","405 公尺"]]},
+ d4:{date:"11/18 三",title:"蘇州市區",
+  s:[["全季觀前街中心",[31.310687,120.62945],"07:30"],
+     ["黃天源",[31.311762,120.627356],"早餐・粥與糕團"],
+     ["拙政園",[31.324224,120.62997],"09:30 預約時段"],
+     ["朱鴻興",[31.310930,120.626800],"12:15 午餐"],
+     ["飯店午休",[31.310687,120.62945],"13:00–14:00"],
+     ["蘇州博物館",[31.322879,120.627791],"14:15 預約時段"],
+     ["采芝齋",[31.311000,120.625900],"16:45 點心"]],
+  m:[["🚶","232 公尺"],["🚐","09:00 出車"],["🚐","南出口接回"],["🚶","105 公尺"],["🚐","14:00 接出"],["🚐","16:30 送回"]]},
+ d5:{date:"11/19 四",title:"蘇州 → 上海",
+  s:[["全季觀前街中心",[31.310687,120.62945],"08:30 退房"],
+     ["獅子林",[31.320802,120.629648],"約 1 小時"],
+     ["觀前街",[31.311000,120.626000],"11:30 午餐"],
+     ["上海飯店",[31.234791,121.473110],"14:30 入住"],
+     ["外灘",[31.2379,121.4902],"16:30 夜景"],
+     ["上海姥姥",[31.2370,121.4840],"18:30 晚餐"]],
+  m:[["🚐","行李已上車"],["🚐","回觀前街"],["🚐","13:00 出發，100 公里約 1.5 小時"],["🚐","1.7 公里"],["🚶","770 公尺"]]},
+ d6:{date:"11/20 五",title:"上海市區",
+  s:[["上海飯店",[31.234791,121.473110],"09:30 出車"],
+     ["外灘濱江",[31.2379,121.4902],"上午"],
+     ["人民廣場",[31.2304,121.4737],"12:00 午餐"],
+     ["飯店午休",[31.234791,121.473110],"12:45–14:00"],
+     ["上海博物館",[31.2287,121.4750],"14:00 走路 3 分"],
+     ["上海一號",[31.2298,121.4790],"18:00 晚餐"]],
+  m:[["🚐","1.7 公里約 10 分"],["🚐","回人民廣場"],["🚶","走回去就行"],["🚶","225 公尺"],["🚶","890 公尺"]]},
+ d7:{date:"11/21 六",title:"上海 → 桃園",
+  s:[["上海飯店",[31.234791,121.473110],"08:30 出發"],
+     ["浦東機場 T2",[31.150271,121.803116],"09:30 抵達"],
+     ["桃園機場 T2",[25.0797,121.2342],"14:00 落地"]],
+  m:[["🚐","約 1 小時"],["✈️","CA195，飛行 1 小時 55 分"]]}
+};
+
+(function(){
+const R=window.JN_ROUTES, NS="http://www.w3.org/2000/svg";
+const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function drawQ(box,key){
+  const d=R[key], n=d.s.length, COLS=3, ROWS=Math.ceil(n/COLS);
+  const W=760, CW=W/COLS, TOP=52, RH=132, H=TOP+RH*ROWS+16;
+  box.innerHTML='';
+  const svg=el("svg",{viewBox:'0 0 '+W+' '+H,class:"rt-svg",role:"img","aria-label":d.date+" "+d.title+" 路線圖"},box);
+  const pos=i=>{const r=Math.floor(i/COLS),c=i%COLS,cc=(r%2===0)?c:(COLS-1-c);
+    return {x:CW*cc+CW/2,y:TOP+RH*r+34,row:r};};
+  const pts=d.s.map((_,i)=>pos(i));
+  const path=[];
+  for(let i=0;i<n-1;i++){const a=pts[i],b=pts[i+1];
+    if(a.row===b.row){path.push('M'+a.x+' '+a.y+' L'+b.x+' '+b.y);}
+    else{const ex=(a.x<W/2)?18:W-18;
+      path.push('M'+a.x+' '+a.y+' L'+ex+' '+a.y+' L'+ex+' '+b.y+' L'+b.x+' '+b.y);} }
+  const full=path.join(" ");
+  el("path",{d:full,class:"rt-line"},svg);
+  const live=el("path",{d:full,class:"rt-live"},svg);
+  d.s.forEach((st,i)=>{const p=pts[i];
+    const g=el("g",{class:"rt-node","data-i":i},svg);
+    el("circle",{cx:p.x,cy:p.y,r:17,class:"rt-dot"},g);
+    el("text",{x:p.x,y:p.y+5,class:"rt-num"},g).textContent=i+1;
+    el("text",{x:p.x,y:p.y+38,class:"rt-name"},g).textContent=st[0];
+    el("text",{x:p.x,y:p.y+56,class:"rt-time"},g).textContent=st[2]||"";
+  });
+  d.m.forEach((mv,i)=>{const a=pts[i],b=pts[i+1];if(!b)return;
+    const mx=(a.row===b.row)?(a.x+b.x)/2:((a.x<W/2)?18:W-18), my=(a.row===b.row)?a.y-24:(a.y+b.y)/2;
+    const g=el("g",{class:"rt-mv"},svg);
+    el("text",{x:mx,y:my+5,class:"rt-ico"},g).textContent=mv[0];
+    el("title",{},g).textContent=mv[1];});
+  const ball=el("circle",{r:9,class:"rt-ball",cx:pts[0].x,cy:pts[0].y},svg);
+  return {svg,live,ball,full,pts,d};
+}
+function play(ctx,label){
+  const live=ctx.live, ball=ctx.ball, pts=ctx.pts, d=ctx.d, n=pts.length;
+  live.style.transition="none";
+  const total=live.getTotalLength();
+  const SEG=reduce?0:1200;
+  let i=0;
+  function step(){
+    if(i>=n-1){label.textContent="完成";return;}
+    const t0=performance.now(), from=(i/(n-1))*total, to=((i+1)/(n-1))*total;
+    label.textContent=(i+1)+' → '+(i+2)+'　'+(d.m[i]?d.m[i][0]+' '+d.m[i][1]:'');
+    function frame(now){
+      const k=SEG?Math.min(1,(now-t0)/SEG):1, len=from+(to-from)*k;
+      live.style.strokeDasharray=len+' '+total;
+      const pt=live.getPointAtLength(len); ball.setAttribute("cx",pt.x); ball.setAttribute("cy",pt.y);
+      if(k<1){requestAnimationFrame(frame);} else {
+        const nd=ctx.svg.querySelector('.rt-node[data-i="'+(i+1)+'"]'); if(nd)nd.classList.add('on');
+        i++; setTimeout(step, reduce?0:260);} }
+    requestAnimationFrame(frame);
+  }
+  ctx.svg.querySelectorAll('.rt-node').forEach(g=>g.classList.remove('on'));
+  const n0=ctx.svg.querySelector('.rt-node[data-i="0"]'); if(n0)n0.classList.add('on');
+  live.style.strokeDasharray='0 '+total;
+  step();
+}
+let leafletReady=null;
+function loadLeaflet(){
+  if(leafletReady) return leafletReady;
+  leafletReady=new Promise((res,rej)=>{
+    const css=document.createElement("link");
+    css.rel="stylesheet"; css.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    document.head.appendChild(css);
+    const s=document.createElement("script");
+    s.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    s.onload=()=>res(window.L); s.onerror=rej; document.head.appendChild(s);
+  });
+  return leafletReady;
+}
+function drawMap(box,key,label){
+  box.innerHTML='<div class="rt-loading">載入地圖中…</div>';
+  loadLeaflet().then(L=>{
+    box.innerHTML=''; box.style.height="420px";
+    const d=R[key], pts=d.s.map(s=>s[1]);
+    const map=L.map(box,{scrollWheelZoom:false}).setView(pts[0],12);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; OpenStreetMap',maxZoom:18}).addTo(map);
+    const line=L.polyline(pts,{color:"#3B5A4E",weight:3,opacity:.55,dashArray:"6 6"}).addTo(map);
+    d.s.forEach((st,i)=>{
+      L.marker(st[1],{icon:L.divIcon({className:"rt-mk",html:'<b>'+(i+1)+'</b>',iconSize:[26,26]})})
+       .addTo(map).bindPopup('<b>'+st[0]+'</b><br>'+(st[2]||''));
+    });
+    map.fitBounds(line.getBounds(),{padding:[36,36]});
+    box._map=map; box._pts=pts; box._d=d;
+    label.textContent="可縮放、拖曳，點號碼看說明";
+  }).catch(()=>{ box.innerHTML='<div class="rt-loading">地圖載入失敗，請改用 Q 版。大陸境內可能連不上地圖圖磚。</div>'; });
+}
+function playMap(box,label){
+  const map=box._map,pts=box._pts,d=box._d; if(!map)return;
+  const L=window.L; if(box._ball)map.removeLayer(box._ball);
+  const ball=L.circleMarker(pts[0],{radius:8,color:"#fff",weight:2,fillColor:"#B5901F",fillOpacity:1}).addTo(map);
+  box._ball=ball; let i=0;
+  function seg(){ if(i>=pts.length-1){label.textContent="完成";return;}
+    const a=pts[i],b=pts[i+1],t0=performance.now(),SEG=reduce?0:1400;
+    label.textContent=(i+1)+' → '+(i+2)+'　'+(d.m[i]?d.m[i][0]+' '+d.m[i][1]:'');
+    map.panTo(a,{animate:true,duration:.4});
+    function fr(now){const k=SEG?Math.min(1,(now-t0)/SEG):1;
+      ball.setLatLng([a[0]+(b[0]-a[0])*k, a[1]+(b[1]-a[1])*k]);
+      if(k<1)requestAnimationFrame(fr); else {i++; setTimeout(seg,reduce?0:300);} }
+    requestAnimationFrame(fr); }
+  seg();
+}
+document.addEventListener("DOMContentLoaded",function(){
+  Object.keys(R).forEach(key=>{
+    const host=document.querySelector('#'+key+' .day-body');
+    if(!host)return;
+    const wrap=document.createElement("div"); wrap.className="rt-wrap";
+    wrap.innerHTML='<div class="rt-bar"><span class="rt-tabs"><button class="rt-tab on" data-v="q">Q 版</button><button class="rt-tab" data-v="m">地圖版</button></span><button class="rt-play">▶ 播放路線</button><span class="rt-label">按播放看當天的移動順序</span></div><div class="rt-stage"></div>';
+    host.insertBefore(wrap, host.firstChild);
+    const stage=wrap.querySelector(".rt-stage"), label=wrap.querySelector(".rt-label"), playBtn=wrap.querySelector(".rt-play");
+    let mode="q", ctx=null;
+    function render(){ stage.style.height="";
+      if(mode==="q"){ ctx=drawQ(stage,key); label.textContent="按播放看當天的移動順序"; }
+      else { drawMap(stage,key,label); } }
+    wrap.querySelectorAll(".rt-tab").forEach(b=>b.addEventListener("click",()=>{
+      wrap.querySelectorAll(".rt-tab").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on"); mode=b.dataset.v; render(); }));
+    playBtn.addEventListener("click",()=>{ if(mode==="q"){ if(!ctx)ctx=drawQ(stage,key); play(ctx,label);} else playMap(stage,label); });
+    render();
+  });
+});
+})();
+
+</script>
 </body>
 </html>
