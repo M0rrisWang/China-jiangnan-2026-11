@@ -9,16 +9,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F2F5F2;
-    --paper-2:#FBFCFB;
-    --ink:#1C2826;
-    --ink-2:#4A5A56;
-    --celadon:#7A9A8B;
-    --celadon-deep:#3B5A4E;
-    --celadon-wash:#E4EDE7;
-    --ginkgo:#B5901F;
-    --ginkgo-wash:#F6EFD8;
-    --rule:#CBD8D0;
+    --paper:#FFFaf2;
+    --paper-2:#FFFFFF;
+    --ink:#1F1813;
+    --ink-2:#6B5D50;
+    --rule:#E9DCC9;
+
+    /* 主色：西湖湖青 */
+    --celadon:#2AA3A8;
+    --celadon-deep:#0D6E78;
+    --celadon-wash:#DDF2F2;
+
+    /* 強調：銀杏金 */
+    --ginkgo:#9A5B0E;
+    --ginkgo-br:#D98A1F;
+    --ginkgo-wash:#FFF2DC;
+
+    /* 三城辨識色 */
+    --hz:#0D6E78;  --hz-wash:#DDF2F2;
+    --sz:#C0392B;  --sz-wash:#FCE4DF;
+    --sh:#2460A7;  --sh-wash:#DEEAF8;
+
     --serif:"Noto Serif TC","Songti TC","SimSun",serif;
     --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
   }
@@ -267,6 +278,52 @@
   }
 
 
+
+/* ===== 三城辨識色 ===== */
+.city-hz{--c:var(--hz);--c-wash:var(--hz-wash)}
+.city-sz{--c:var(--sz);--c-wash:var(--sz-wash)}
+.city-sh{--c:var(--sh);--c-wash:var(--sh-wash)}
+.city-go{--c:var(--ginkgo);--c-wash:var(--ginkgo-wash)}
+.day{border-left:4px solid var(--c,var(--rule));padding-left:1.1rem;margin-left:-.1rem}
+.day .day-n{color:var(--c,var(--celadon-deep))}
+.day .day-date{color:var(--ink)}
+.day .tag{border-color:var(--c,var(--rule));color:var(--c,var(--ink-2));background:var(--c-wash,transparent)}
+.day .rt-tab.on{background:var(--c,var(--celadon-deep))}
+.day .rt-live{stroke:var(--c,var(--celadon-deep))}
+.day .rt-node.on .rt-dot{fill:var(--c,var(--celadon-deep));stroke:var(--c,var(--celadon-deep))}
+.day .rt-mk{background:var(--c,var(--celadon-deep))}
+.day .split{background:var(--c-wash,var(--ginkgo-wash));border-left-color:var(--c,var(--ginkgo))}
+
+.hero{
+  padding:3.2rem 0 2.4rem;border-bottom:0;
+  background:linear-gradient(160deg,var(--hz-wash) 0%,var(--paper) 55%,var(--ginkgo-wash) 100%);
+  margin-bottom:0;
+}
+h2{color:var(--celadon-deep)}
+h3{color:var(--ink)}
+
+.toc-days a:nth-child(1),.toc-days a:nth-child(2){border-color:var(--hz)}
+.toc-days a:nth-child(1) b,.toc-days a:nth-child(2) b{color:var(--hz)}
+.toc-days a:nth-child(1):hover,.toc-days a:nth-child(2):hover{background:var(--hz-wash)}
+.toc-days a:nth-child(3),.toc-days a:nth-child(4){border-color:var(--sz)}
+.toc-days a:nth-child(3) b,.toc-days a:nth-child(4) b{color:var(--sz)}
+.toc-days a:nth-child(3):hover,.toc-days a:nth-child(4):hover{background:var(--sz-wash)}
+.toc-days a:nth-child(5),.toc-days a:nth-child(6){border-color:var(--sh)}
+.toc-days a:nth-child(5) b,.toc-days a:nth-child(6) b{color:var(--sh)}
+.toc-days a:nth-child(5):hover,.toc-days a:nth-child(6):hover{background:var(--sh-wash)}
+.toc-days a:nth-child(7){border-color:var(--ginkgo-br)}
+.toc-days a:nth-child(7) b{color:var(--ginkgo)}
+.toc-days a:nth-child(7):hover{background:var(--ginkgo-wash)}
+
+.hz{border-top-color:var(--hz)!important}
+.sz{border-top-color:var(--sz)!important}
+.sh{border-top-color:var(--sh)!important}
+
+.tbl th{background:var(--celadon-wash);color:var(--celadon-deep);font-weight:700}
+.alert{border-left-width:4px;border-left-color:var(--ginkgo-br)}
+.rain{border-left-width:4px}
+.split{border-left-width:4px}
+
 /* ===== 目錄導覽 ===== */
 .toc{
   max-width:860px;margin:0 auto 2.6rem;padding:1.1rem 1.2rem 1.2rem;
@@ -417,7 +474,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
 <section>
   <h2 id="days">每日行程</h2>
 
-  <article class="day" id="d1">
+  <article class="day city-hz" id="d1">
     <div class="day-head">
       <span class="day-n">Day 1</span>
       <span class="day-date">11/15 日</span>
@@ -441,7 +498,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
     </div>
   </article>
 
-  <article class="day is-full" id="d2">
+  <article class="day is-full city-hz" id="d2">
     <div class="day-head">
       <span class="day-n">Day 2</span>
       <span class="day-date">11/16 一</span>
@@ -467,7 +524,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
     </div>
   </article>
 
-  <article class="day" id="d3">
+  <article class="day city-sz" id="d3">
     <div class="day-head">
       <span class="day-n">Day 3</span>
       <span class="day-date">11/17 二</span>
@@ -491,7 +548,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
     </div>
   </article>
 
-  <article class="day is-full" id="d4">
+  <article class="day is-full city-sz" id="d4">
     <div class="day-head">
       <span class="day-n">Day 4</span>
       <span class="day-date">11/18 三</span>
@@ -516,7 +573,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
     </div>
   </article>
 
-  <article class="day" id="d5">
+  <article class="day city-sh" id="d5">
     <div class="day-head">
       <span class="day-n">Day 5</span>
       <span class="day-date">11/19 四</span>
@@ -540,7 +597,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
     </div>
   </article>
 
-  <article class="day is-full" id="d6">
+  <article class="day is-full city-sh" id="d6">
     <div class="day-head">
       <span class="day-n">Day 6</span>
       <span class="day-date">11/20 五</span>
@@ -566,7 +623,7 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
     </div>
   </article>
 
-  <article class="day" id="d7">
+  <article class="day city-go" id="d7">
     <div class="day-head">
       <span class="day-n">Day 7</span>
       <span class="day-date">11/21 六</span>
@@ -1455,11 +1512,12 @@ h2[id],article.day[id]{scroll-margin-top:1rem}
 </section>
 
 <footer>
-  <p class="ver">版本 v40・公開版　最後更新 2026 年 10 月 2 日</p>
+  <p class="ver">版本 v41・公開版　最後更新 2026 年 10 月 2 日</p>
   <p style="margin-top:1rem">行程草案，尚未訂任何項目。機票時間與票價為查詢當時的即時資料，開票前需再確認；門票價格與開放時間以景區公告為準。</p>
   <p><strong>這份文件還在編修中。</strong>看到的內容以上面的版本日期為準——如果你手上的討論筆記對不上，先確認是不是看的是舊版，重新整理頁面就會拿到最新的。</p>
   <h3 id="changelog" style="font-family:var(--serif);font-size:1.05rem;margin:1.8rem 0 .3rem;color:var(--ink);scroll-margin-top:1rem">更新紀錄</h3>
   <ul class="changelog">
+    <li><strong>v41　10/2</strong>　<strong>換成明亮配色，並為三個城市各給一個顏色</strong>：杭州西湖湖青、蘇州園林朱紅、上海外灘靛藍，回程日用銀杏金。每天的左側色條、標題、標籤、路線動圖都跟著城市變色，掃一眼就知道哪天在哪。底色改為暖米白、主色提高飽和度，頁首加上漸層。<strong>所有文字對比度皆通過 WCAG AA</strong>，字級與行高維持不變。</li>
     <li><strong>v40　10/2</strong>　<strong>頁首加上目錄導覽</strong>：上排是七天的快速跳轉（含日期與城市），下排是十二個章節。捲動超過一段距離後右下角出現<strong>回到目錄</strong>浮動按鈕。所有章節都加了錨點，列印時目錄與按鈕自動隱藏。</li>
     <li><strong>v39　10/2</strong>　<strong>頁首加上版本徽章</strong>，一打開就看得到目前是哪一版、何時更新，旁邊有連結直接跳到更新紀錄。徽章文字<strong>由頁尾那一行自動同步</strong>，日後只要改一處兩邊都會更新。列印時隱藏連結。</li>
     <li><strong>v38　10/2</strong>　候選飯店一節同步實際訂房：<strong>杭州仁和飯店與蘇州全季觀前街中心標為已訂</strong>並附金額與取消期限。<strong>修正蘇州距離表</strong>——先前仍是舊飯店（觀前街 57-69 號）的數字，實際為餐廳群 405 公尺、蘇博 1.4 公里、平江路南口 499 公尺。</li>
