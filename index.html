@@ -266,6 +266,49 @@
     a{color:inherit;text-decoration:none}
   }
 
+
+/* ===== 目錄導覽 ===== */
+.toc{
+  max-width:860px;margin:0 auto 2.6rem;padding:1.1rem 1.2rem 1.2rem;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:12px;
+}
+.toc-t{
+  font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.14em;
+  color:var(--ink-2);margin:0 0 .7rem;
+}
+.toc-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:.45rem;margin-bottom:.9rem}
+.toc-days a{
+  display:block;padding:.5rem .4rem;text-align:center;text-decoration:none;
+  background:var(--paper);border:1px solid var(--rule);border-radius:8px;
+  font-family:var(--sans);line-height:1.35;transition:background .15s,border-color .15s;
+}
+.toc-days a:hover{background:var(--celadon-wash);border-color:var(--celadon)}
+.toc-days b{display:block;font-size:.9rem;color:var(--celadon-deep)}
+.toc-days span{display:block;font-size:.76rem;color:var(--ink-2);margin-top:.1rem}
+.toc-sec{display:flex;flex-wrap:wrap;gap:.4rem}
+.toc-sec a{
+  display:inline-block;padding:.32rem .75rem;text-decoration:none;
+  font-family:var(--sans);font-size:.85rem;color:var(--ink);
+  background:var(--paper);border:1px solid var(--rule);border-radius:999px;
+  transition:background .15s,border-color .15s;
+}
+.toc-sec a:hover{background:var(--celadon-wash);border-color:var(--celadon)}
+.totop{
+  position:fixed;right:1rem;bottom:1rem;z-index:50;
+  display:none;align-items:center;gap:.3rem;
+  padding:.55rem 1rem;border-radius:999px;text-decoration:none;
+  font-family:var(--sans);font-size:.86rem;color:#fff;background:var(--celadon-deep);
+  box-shadow:0 2px 10px rgba(0,0,0,.22);
+}
+.totop.on{display:inline-flex}
+h2[id],article.day[id]{scroll-margin-top:1rem}
+@media(max-width:640px){
+  .toc{margin-bottom:2rem;padding:.9rem 1rem 1rem}
+  .toc-days{grid-template-columns:repeat(auto-fit,minmax(92px,1fr))}
+  .toc-sec a{font-size:.8rem;padding:.28rem .6rem}
+}
+@media print{.toc,.totop{display:none}}
+
 /* ===== 每日路線動圖 ===== */
 .rt-wrap{margin:0 0 1.6rem;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--paper-2)}
 .rt-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;padding:.6rem .8rem;border-bottom:1px solid var(--rule);background:var(--paper)}
@@ -324,8 +367,35 @@
   </div>
 </header>
 
+<nav class="toc" id="toc" aria-label="目錄">
+  <p class="toc-t">目錄</p>
+  <div class="toc-days">
+    <a href="#d1"><b>Day 1</b><span>11/15 抵杭州</span></a>
+    <a href="#d2"><b>Day 2</b><span>11/16 杭州</span></a>
+    <a href="#d3"><b>Day 3</b><span>11/17 往蘇州</span></a>
+    <a href="#d4"><b>Day 4</b><span>11/18 蘇州</span></a>
+    <a href="#d5"><b>Day 5</b><span>11/19 往上海</span></a>
+    <a href="#d6"><b>Day 6</b><span>11/20 上海</span></a>
+    <a href="#d7"><b>Day 7</b><span>11/21 回程</span></a>
+  </div>
+  <div class="toc-sec">
+    <a href="#todo">待辦與待確認</a>
+    <a href="#flight">機票</a>
+    <a href="#hotel">住宿</a>
+    <a href="#car">包車</a>
+    <a href="#ticket">門票與預約</a>
+    <a href="#food">吃飯</a>
+    <a href="#spa">足浴與按摩</a>
+    <a href="#rain">雨天怎麼辦</a>
+    <a href="#net">網路與通訊</a>
+    <a href="#prep">行前準備</a>
+    <a href="#budget">預估總預算</a>
+    <a href="#design">設計原則</a>
+  </div>
+</nav>
+
 <section>
-  <h2>這份行程是怎麼設計的</h2>
+  <h2 id="design">這份行程是怎麼設計的</h2>
   <p class="lead">行程按 70 歲以上的體力節奏來排，不是把景點塞滿。三個原則貫穿全部七天。</p>
   <div class="principles">
     <div>
@@ -345,7 +415,7 @@
 </section>
 
 <section>
-  <h2>每日行程</h2>
+  <h2 id="days">每日行程</h2>
 
   <article class="day" id="d1">
     <div class="day-head">
@@ -537,7 +607,7 @@
 </section>
 
 <section>
-  <h2>足浴與按摩</h2>
+  <h2 id="spa">足浴與按摩</h2>
   <p class="lead">晚餐後的選配活動，排在 Day 1 到 Day 5。<strong>長輩不一定去</strong>——他們回房休息，兩位中年出去放鬆，這本來就符合彈性分組的原則。</p>
 
   <h3>這是什麼</h3>
@@ -573,7 +643,7 @@
 </section>
 
 <section>
-  <h2>雨天怎麼辦</h2>
+  <h2 id="rain">雨天怎麼辦</h2>
   <p class="lead">11 月中的江南陰雨機率不低，所以每天都配了室內備案（寫在各日行程裡的綠色框）。但有幾個原則比備案清單更重要。</p>
 
   <h3>長輩雨天的頭號風險是跌倒，不是感冒</h3>
@@ -597,7 +667,7 @@
 </section>
 
 <section>
-  <h2>吃飯</h2>
+  <h2 id="food">吃飯</h2>
   <p class="lead">江南菜有一個對長輩不太友善的共同點：甜。蘇幫菜普遍加糖，本幫菜是濃油赤醬，杭幫菜也不少甜口。餐廳選得對只是一半，點菜方式才是關鍵。</p>
 
   <h3>點菜原則</h3>
@@ -748,7 +818,7 @@
 </section>
 
 <section>
-  <h2>機票</h2>
+  <h2 id="flight">機票</h2>
   <p class="lead">2026/9/24 經易遊網開票，中國國際航空。四人同一組訂位。<span class="pending">訂位代號與訂單編號不公開，請向訂票人索取。</span></p>
 
   <div class="scroller">
@@ -811,7 +881,7 @@
 </section>
 
 <section>
-  <h2>住宿</h2>
+  <h2 id="hotel">住宿</h2>
   <p>還沒訂。<strong>位置的重要性高於房價</strong>——彈性分組完全依賴「隨時能走回房間休息」，飯店離景點遠，這個設計就破功了。</p>
   <div class="scroller">
   <table class="tbl">
@@ -979,7 +1049,7 @@
 </section>
 
 <section>
-  <h2>包車</h2>
+  <h2 id="car">包車</h2>
   <p>行李是 <strong>28 吋 ×2、26 吋 ×1、20 吋 ×1</strong>，乘客 4 位。輪椅目前暫不納入討論。</p>
   <div class="alert"><b>車型問題已解決：7 人座就夠。</b>平台商品的規格寫明「7 人座商務車最多可坐 6 人，可放置 4 件 26-28 吋行李箱」（別克 GL8 級距）。你們的行李剛好在規格內，那個 20 吋比規格小、更寬鬆。<br><strong>所以不需要升級 9 人座</strong>——議價時要記住這點，業者主動給 9 人座不構成加價理由。<br>仍建議要求對方回覆<strong>具體車款</strong>，不要接受「商務車」這種籠統說法：有車款才能自己查空間，現場來的車不符也才有依據。</div>
   <p>順帶一提：若之後決定租折疊輪椅，折疊後可以放在空著的座位上，不必佔後車廂——四個人坐 7 人座還有兩個空位。所以「租輪椅」和「行李放得下」不互斥，不必二選一。</p>
@@ -1152,7 +1222,7 @@
 </section>
 
 <section>
-  <h2>門票與預約</h2>
+  <h2 id="ticket">門票與預約</h2>
   <div class="alert"><b>四個景點都必須提前預約，現場買不到。</b>拙政園、獅子林、蘇州博物館、上海博物館全部是實名制分時預約。<strong>拙政園 2026 年起現場不出售未經預約的門票，沒有例外</strong>，熱門時段常提前數日售罄。這四項沒訂好，Day 4 和 Day 5 的主景點會整個落空。</div>
 
   <h3>票價</h3>
@@ -1209,7 +1279,7 @@
 </section>
 
 <section>
-  <h2>行前準備</h2>
+  <h2 id="prep">行前準備</h2>
   <ul class="check">
     <li><b>台胞證效期</b><span>五年效期。如果好幾年沒去大陸很可能已過期，辦新證要時間，這是最容易卡住行程的一環，現在就查。</span></li>
     <li><b>旅遊平安險</b><span>70 歲以上保額普遍縮減，75 歲以上部分業者只能透過保險經紀投保，流程比訂機票慢。務必確認保單含「緊急醫療轉送」。健康告知要誠實填寫，隱瞞既往病史被查到整份保單可能被撤銷。<strong>信用卡附贈的旅遊險 70 歲以上常不承保</strong>，不能拿來替代。</span></li>
@@ -1221,7 +1291,7 @@
 </section>
 
 <section>
-  <h2>網路與通訊</h2>
+  <h2 id="net">網路與通訊</h2>
   <p class="lead">這一站的需求跟一般旅遊不同：其中一位需要在大陸維持不受限制的工作用網路。好消息是這件事有正規做法，不需要用到任何規避手段。</p>
 
   <h3>為什麼漫遊不算翻牆</h3>
@@ -1261,7 +1331,7 @@
 </section>
 
 <section>
-  <h2>預估總預算</h2>
+  <h2 id="budget">預估總預算</h2>
   <p class="lead">機票、包車、杭州與蘇州飯店<strong>已是實付金額</strong>，只剩上海飯店未訂。人民幣與台幣並列，換算以 1 CNY ≈ 4.3 TWD 計。</p>
 
   <h3>已確定的四大項</h3>
@@ -1313,7 +1383,7 @@
 </section>
 
 <section class="todo">
-  <h2>待辦與待確認</h2>
+  <h2 id="todo">待辦與待確認</h2>
   <p class="lead">按時間排，不是按類別——有幾件事有硬性時間點，錯過就補不回來。可以直接印出來勾。</p>
 
   <h3>已完成<span class="when">不用再看</span></h3>
@@ -1385,11 +1455,12 @@
 </section>
 
 <footer>
-  <p class="ver">版本 v39・公開版　最後更新 2026 年 10 月 2 日</p>
+  <p class="ver">版本 v40・公開版　最後更新 2026 年 10 月 2 日</p>
   <p style="margin-top:1rem">行程草案，尚未訂任何項目。機票時間與票價為查詢當時的即時資料，開票前需再確認；門票價格與開放時間以景區公告為準。</p>
   <p><strong>這份文件還在編修中。</strong>看到的內容以上面的版本日期為準——如果你手上的討論筆記對不上，先確認是不是看的是舊版，重新整理頁面就會拿到最新的。</p>
   <h3 id="changelog" style="font-family:var(--serif);font-size:1.05rem;margin:1.8rem 0 .3rem;color:var(--ink);scroll-margin-top:1rem">更新紀錄</h3>
   <ul class="changelog">
+    <li><strong>v40　10/2</strong>　<strong>頁首加上目錄導覽</strong>：上排是七天的快速跳轉（含日期與城市），下排是十二個章節。捲動超過一段距離後右下角出現<strong>回到目錄</strong>浮動按鈕。所有章節都加了錨點，列印時目錄與按鈕自動隱藏。</li>
     <li><strong>v39　10/2</strong>　<strong>頁首加上版本徽章</strong>，一打開就看得到目前是哪一版、何時更新，旁邊有連結直接跳到更新紀錄。徽章文字<strong>由頁尾那一行自動同步</strong>，日後只要改一處兩邊都會更新。列印時隱藏連結。</li>
     <li><strong>v38　10/2</strong>　候選飯店一節同步實際訂房：<strong>杭州仁和飯店與蘇州全季觀前街中心標為已訂</strong>並附金額與取消期限。<strong>修正蘇州距離表</strong>——先前仍是舊飯店（觀前街 57-69 號）的數字，實際為餐廳群 405 公尺、蘇博 1.4 公里、平江路南口 499 公尺。</li>
     <li><strong>v37　10/2</strong>　待辦新增 <strong>App 準備清單</strong>：<strong>App 現在就裝並註冊</strong>（支付寶、高德地圖、大眾點評、微信，台灣門號可註冊）；<strong>綁卡等十月中</strong>（微信新綁卡 60 天免服務費才涵蓋得到行程）。</li>
@@ -1628,7 +1699,13 @@ document.addEventListener("DOMContentLoaded",function(){
     if(n)n.textContent=m[1];
     if(d)d.textContent="更新於 "+m[2].trim();
   });
+  document.addEventListener("DOMContentLoaded",function(){
+    var b=document.getElementById("totop"); if(!b)return;
+    function tick(){ b.classList.toggle("on", window.scrollY>700); }
+    window.addEventListener("scroll",tick,{passive:true}); tick();
+  });
 })();
 </script>
+<a href="#toc" class="totop" id="totop" aria-label="回到目錄">☰ 目錄</a>
 </body>
 </html>
